@@ -150,6 +150,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="productsTable" destination="kE2-OP-vE6" id="wQS-7H-gcE"/>
                         <outlet property="storeCloseTimeLabel" destination="uAb-98-F8o" id="faX-ck-fkz"/>
                         <outlet property="storeNameLabel" destination="NQ4-QL-83q" id="lfV-nv-aqR"/>
                         <outlet property="storeOpenTimeLabel" destination="Txv-1G-5Oy" id="pUu-uM-AoX"/>

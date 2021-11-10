@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController {
 
@@ -13,11 +14,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var storeRatingLabel: UILabel!
     @IBOutlet weak var storeOpenTimeLabel: UILabel!
     @IBOutlet weak var storeCloseTimeLabel: UILabel!
+    @IBOutlet weak var productsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("[ Asimple_e-market_application ]")
+        self.productsTable.tableFooterView = UIView()
+        self.productsTable.delegate = self
+        self.productsTable.dataSource = self
     }
     @IBAction func placeOrderAction(_ sender: UIButton) {
         self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
@@ -53,7 +58,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
+        cell.productImageLink.sd_setImage(with: URL(string: "https://www.nespresso.com/ncp/res/uploads/recipes/nespresso-recipes-Latte-Art-Tulip.jpg"), placeholderImage: UIImage(named: "demo"))
+        cell.productNameLabel.text = "Product Name: nil"
+        cell.productPriceLabel.text = "Product price: 123 TK"
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
