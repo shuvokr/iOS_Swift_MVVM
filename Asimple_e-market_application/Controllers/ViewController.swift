@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     private func callToViewModelForUIUpdate() {
         self.storeViewModel = StoreModelView()
         self.storeViewModel.bindStoreInfoViewModelToController = {
-            print(self.storeViewModel.storeData)
+            print(self.storeViewModel.storeData ?? "nil")
         }
     }
 }

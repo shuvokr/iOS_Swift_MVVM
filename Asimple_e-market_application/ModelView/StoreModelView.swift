@@ -19,7 +19,6 @@ class StoreModelView: NSObject {
     
     override init() {
         super.init()
-        print("5")
         self.apiService =  APIService()
         callFuncToGetStoreData()
     }

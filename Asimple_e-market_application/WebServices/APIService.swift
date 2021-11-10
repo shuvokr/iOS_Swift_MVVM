@@ -31,7 +31,6 @@ extension APIService {
                     let jsonData = JSON(json as Any)
                     guard let statusCode = response.response?.statusCode else { return }
                     if(statusCode == 200) {
-                        print(jsonData)
                         var storeData = StoreInfo()
                         storeData.name = "Store Name: \(jsonData["name"].stringValue)"
                         storeData.rating = "Rating: \(jsonData["rating"].stringValue)"
