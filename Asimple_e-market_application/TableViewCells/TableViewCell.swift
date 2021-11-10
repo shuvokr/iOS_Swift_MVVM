@@ -8,6 +8,10 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var productPriceLabel: UILabel!
+    @IBOutlet weak var productImageLink: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +23,4 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

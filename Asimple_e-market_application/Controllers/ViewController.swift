@@ -9,6 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var storeNameLabel: UILabel!
+    @IBOutlet weak var storeRatingLabel: UILabel!
+    @IBOutlet weak var storeOpenTimeLabel: UILabel!
+    @IBOutlet weak var storeCloseTimeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -38,5 +43,20 @@ extension ViewController {
         DispatchQueue.main.async {
             self.present(alert, animated: true, completion: nil)
         }
+    }
+}
+
+// MARK: - Table Vide Delegate & Data Source
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as TableViewCell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 115
     }
 }

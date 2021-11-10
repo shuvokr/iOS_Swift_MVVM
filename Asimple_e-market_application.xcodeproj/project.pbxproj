@@ -13,6 +13,7 @@
 		841BB306273BA3B000C9450B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BB304273BA3B000C9450B /* Main.storyboard */; };
 		841BB308273BA3B800C9450B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841BB307273BA3B800C9450B /* Assets.xcassets */; };
 		841BB30B273BA3B800C9450B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BB309273BA3B800C9450B /* LaunchScreen.storyboard */; };
+		841BB31A273BBB1300C9450B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB319273BBB1300C9450B /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		841BB307273BA3B800C9450B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		841BB30A273BA3B800C9450B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841BB30C273BA3B800C9450B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		841BB319273BBB1300C9450B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		841BB2FD273BA3B000C9450B /* Asimple_e-market_application */ = {
 			isa = PBXGroup;
 			children = (
+				841BB318273BB99200C9450B /* TableViewCells */,
 				841BB314273BA7D900C9450B /* StoryBoards */,
 				841BB313273BA7BC00C9450B /* Controllers */,
 				841BB315273BA81800C9450B /* ModelView */,
@@ -113,6 +116,14 @@
 			children = (
 			);
 			path = WebServices;
+			sourceTree = "<group>";
+		};
+		841BB318273BB99200C9450B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				841BB319273BBB1300C9450B /* TableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				841BB303273BA3B000C9450B /* ViewController.swift in Sources */,
+				841BB31A273BBB1300C9450B /* TableViewCell.swift in Sources */,
 				841BB2FF273BA3B000C9450B /* AppDelegate.swift in Sources */,
 				841BB301273BA3B000C9450B /* SceneDelegate.swift in Sources */,
 			);
