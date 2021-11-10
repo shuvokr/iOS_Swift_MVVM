@@ -54,7 +54,36 @@ extension APIService {
 // MARK: - Load Products
 extension APIService {
     func apiToGetProductsInfo(completion : @escaping ([Products]) -> ()) {
-        
+        let urlTo = URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/products")!
+       
+        AF.request(
+            urlTo,
+            method: .get
+            ).responseJSON {
+            (response) in
+            switch response.result {
+                
+                case .success(let json):
+                    let jsonData = JSON(json as Any)
+                    guard let statusCode = response.response?.statusCode else { return }
+                    if(statusCode == 200) {
+                        var data : [Products] = [Products]()
+                        for i in 0..<jsonData.count {
+                            data.append(Products(name: jsonData[i]["name"].stringValue, price: jsonData[i]["price"].stringValue, imageUrl: jsonData[i]["imageUrl"].stringValue))
+                        }
+                        completion(data)
+                    }
+                    else {
+                        print("Found status code ==> \(statusCode)")
+                        completion([Products]())
+                    }
+
+                case .failure(let error):
+                    print("getProductList request error: \(error)")
+                    completion([Products]())
+
+            }
+        }
     }
 }
 // MARK: - Place order
