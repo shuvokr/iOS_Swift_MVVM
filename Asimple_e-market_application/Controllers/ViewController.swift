@@ -17,22 +17,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var productsTable: UITableView!
     
     private var storeViewModel : StoreModelView!
+    private var productViewModel : ProductModelView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         print("[ Asimple_e-market_application ]")
         self.productsTable.tableFooterView = UIView()
-        self.productsTable.delegate = self
-        self.productsTable.dataSource = self
         
-        self.callToViewModelForUIUpdate()
+        self.callToStoreViewModelForUIUpdate()
+        self.callToProductViewModelForUIUpdate()
     }
     @IBAction func placeOrderAction(_ sender: UIButton) {
         self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
     }
     
-    private func callToViewModelForUIUpdate() {
+    private func callToStoreViewModelForUIUpdate() {
         self.storeViewModel = StoreModelView()
         self.storeViewModel.bindStoreInfoViewModelToController = {
             DispatchQueue.main.async {
@@ -40,6 +40,17 @@ class ViewController: UIViewController {
                 self.storeRatingLabel.text = self.storeViewModel.storeData.rating
                 self.storeOpenTimeLabel.text = self.storeViewModel.storeData.openingTime
                 self.storeCloseTimeLabel.text = self.storeViewModel.storeData.closingTime
+            }
+        }
+    }
+    
+    private func callToProductViewModelForUIUpdate() {
+        self.productViewModel = ProductModelView()
+        self.storeViewModel.bindStoreInfoViewModelToController = {
+            DispatchQueue.main.async {
+                self.productsTable.delegate = self
+                self.productsTable.dataSource = self
+                self.productsTable.reloadData()
             }
         }
     }
@@ -70,14 +81,14 @@ extension ViewController {
 // MARK: - Table Vide Delegate & Data Source
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return self.productViewModel.storeData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
-        cell.productImageLink.sd_setImage(with: URL(string: "https://www.nespresso.com/ncp/res/uploads/recipes/nespresso-recipes-Latte-Art-Tulip.jpg"), placeholderImage: UIImage(named: "demo"))
-        cell.productNameLabel.text = "Product Name: nil"
-        cell.productPriceLabel.text = "Product price: 123 TK"
+        cell.productImageLink.sd_setImage(with: URL(string: self.productViewModel.storeData[indexPath.row].imageUrl), placeholderImage: UIImage(named: "demo"))
+        cell.productNameLabel.text = "Product Name: \(self.productViewModel.storeData[indexPath.row].name)"
+        cell.productPriceLabel.text = "Product price: \(self.productViewModel.storeData[indexPath.row].price) TK"
         return cell
     }
     
