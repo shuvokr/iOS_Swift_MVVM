@@ -14,5 +14,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         print("[ Asimple_e-market_application ]")
     }
+    @IBAction func placeOrderAction(_ sender: UIButton) {
+        
+    }
 }
 
