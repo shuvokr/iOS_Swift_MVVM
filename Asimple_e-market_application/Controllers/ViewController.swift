@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var storeCloseTimeLabel: UILabel!
     @IBOutlet weak var productsTable: UITableView!
     
+    private var storeViewModel : StoreModelView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,9 +25,18 @@ class ViewController: UIViewController {
         self.productsTable.tableFooterView = UIView()
         self.productsTable.delegate = self
         self.productsTable.dataSource = self
+        
+        self.callToViewModelForUIUpdate()
     }
     @IBAction func placeOrderAction(_ sender: UIButton) {
         self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
+    }
+    
+    private func callToViewModelForUIUpdate() {
+        self.storeViewModel = StoreModelView()
+        self.storeViewModel.bindStoreInfoViewModelToController = {
+            print(self.storeViewModel.storeData)
+        }
     }
 }
 
