@@ -35,7 +35,12 @@ class ViewController: UIViewController {
     private func callToViewModelForUIUpdate() {
         self.storeViewModel = StoreModelView()
         self.storeViewModel.bindStoreInfoViewModelToController = {
-            print(self.storeViewModel.storeData ?? "nil")
+            DispatchQueue.main.async {
+                self.storeNameLabel.text = self.storeViewModel.storeData.name
+                self.storeRatingLabel.text = self.storeViewModel.storeData.rating
+                self.storeOpenTimeLabel.text = self.storeViewModel.storeData.openingTime
+                self.storeCloseTimeLabel.text = self.storeViewModel.storeData.closingTime
+            }
         }
     }
 }

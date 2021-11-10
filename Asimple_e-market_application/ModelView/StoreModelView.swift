@@ -25,7 +25,7 @@ class StoreModelView: NSObject {
     
     func callFuncToGetStoreData() {
         self.apiService.apiToGetStoreInfo { (storeData) in
-            print(storeData)
+            self.storeData = storeData
         }
     }
 }
