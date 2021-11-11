@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     private var storeViewModel : StoreModelView!
     private var productViewModel : ProductModelView!
+    private var isSelectedProduct : [Bool] = [Bool]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +30,35 @@ class ViewController: UIViewController {
         self.callToProductViewModelForUIUpdate()
     }
     @IBAction func placeOrderAction(_ sender: UIButton) {
-        self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
+        
+        var selectedProduct : [Products] = [Products]()
+        for i in 0..<self.isSelectedProduct.count {
+            if isSelectedProduct[i] {
+                selectedProduct.append(self.productViewModel.storeData[i])
+            }
+        }
+        
+        if selectedProduct.count == 0 {
+            self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
+        }
+        else {
+            self.callToPlaceOrder(products: selectedProduct)
+        }
     }
     
     private func callToStoreViewModelForUIUpdate() {
         self.storeViewModel = StoreModelView()
         self.storeViewModel.bindStoreInfoViewModelToController = {
             DispatchQueue.main.async {
-                self.storeNameLabel.text = self.storeViewModel.storeData.name
-                self.storeRatingLabel.text = self.storeViewModel.storeData.rating
-                self.storeOpenTimeLabel.text = self.storeViewModel.storeData.openingTime
-                self.storeCloseTimeLabel.text = self.storeViewModel.storeData.closingTime
+                if self.storeViewModel.storeData != nil {
+                    self.storeNameLabel.text = self.storeViewModel.storeData.name
+                    self.storeRatingLabel.text = self.storeViewModel.storeData.rating
+                    self.storeOpenTimeLabel.text = self.storeViewModel.storeData.openingTime
+                    self.storeCloseTimeLabel.text = self.storeViewModel.storeData.closingTime
+                }
+                else {
+                    print("Store info not found!")
+                }
             }
         }
     }
@@ -47,11 +66,28 @@ class ViewController: UIViewController {
     private func callToProductViewModelForUIUpdate() {
         self.productViewModel = ProductModelView()
         self.storeViewModel.bindStoreInfoViewModelToController = {
+        
             DispatchQueue.main.async {
-                self.productsTable.delegate = self
-                self.productsTable.dataSource = self
-                self.productsTable.reloadData()
+                if self.productViewModel.storeData != nil {
+                    let cnt = self.productViewModel.storeData?.count ?? 0
+                    for _ in 0..<cnt {
+                        self.isSelectedProduct.append(false)
+                    }
+                    self.productsTable.delegate = self
+                    self.productsTable.dataSource = self
+                    self.productsTable.reloadData()
+                }
+                else {
+                    print("No product founds!")
+                }
             }
+        }
+    }
+    
+    private func callToPlaceOrder(products : [Products]) {
+        let apiService : APIService = APIService()
+        apiService.apiToPlaceOrder(productsData: products) { (statusCode) in
+            self.showWarnings(title: "Placed order successfully", alertMessage: "Your order was placed successfully.")
         }
     }
 }
@@ -86,10 +122,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
+        cell.selectionStyle = .none
         cell.productImageLink.sd_setImage(with: URL(string: self.productViewModel.storeData[indexPath.row].imageUrl), placeholderImage: UIImage(named: "demo"))
         cell.productNameLabel.text = "Product Name: \(self.productViewModel.storeData[indexPath.row].name)"
         cell.productPriceLabel.text = "Product price: \(self.productViewModel.storeData[indexPath.row].price) TK"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        if self.isSelectedProduct[indexPath.row] {
+            cell?.backgroundColor = .white
+            self.isSelectedProduct[indexPath.row] = false
+        }
+        else {
+            cell?.backgroundColor = .green
+            self.isSelectedProduct[indexPath.row] = true
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
