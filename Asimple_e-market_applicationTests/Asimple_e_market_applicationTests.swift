@@ -6,27 +6,44 @@
 //
 
 import XCTest
+@testable import Asimple_e_market_application
 
 class Asimple_e_market_applicationTests: XCTestCase {
-
+    var productModel: Products!
+    var storeModel: StoreInfo!
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        productModel = Products(name: "Coffe", price: "123", imageUrl: "https://google.com")
+        storeModel = StoreInfo(name: "Store Name", rating: "4.0", openingTime: "10:00", closingTime: "20:00")
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        productModel = nil
+        storeModel = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func test_ValidateProductPrice() {
+        productModel.price = "123"
+        let isValidPrice = productModel.isValidPrice
+        XCTAssertTrue(isValidPrice, "Price is not valid!")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_ValidateProductPrice2() {
+        productModel.price = "-123"
+        let isValidPrice = productModel.isValidPrice
+        XCTAssertTrue(isValidPrice, "Price is not valid!")
     }
-
+    
+    func test_ValidateStoreRating() {
+        storeModel.rating = "1.1"
+        let isValidRating = storeModel.isValidRating
+        XCTAssertTrue(isValidRating, "Rating is not valid!")
+    }
+    
+    func test_ValidateStoreRating2() {
+        storeModel.rating = "6.1"
+        let isValidRating = storeModel.isValidRating
+        XCTAssertTrue(isValidRating, "Rating is not valid!")
+    }
 }

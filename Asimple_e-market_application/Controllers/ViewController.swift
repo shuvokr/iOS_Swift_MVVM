@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         
             DispatchQueue.main.async {
                 if self.productViewModel.storeData != nil {
-                    let cnt = self.productViewModel.storeData?.count ?? 0
+                    let cnt = self.productViewModel.storeData.count
                     for _ in 0..<cnt {
                         self.isSelectedProduct.append(false)
                     }

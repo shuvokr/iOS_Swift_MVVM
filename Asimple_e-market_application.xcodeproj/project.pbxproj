@@ -19,7 +19,18 @@
 		841BB31E273BC3C400C9450B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31D273BC3C400C9450B /* Model.swift */; };
 		841BB320273BCBD700C9450B /* StoreModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31F273BCBD700C9450B /* StoreModelView.swift */; };
 		841BB322273BCBEA00C9450B /* ProductModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB321273BCBEA00C9450B /* ProductModelView.swift */; };
+		84FCE59D273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE59C273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84FCE59E273CFE6800F66ED1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 841BB2F3273BA3AF00C9450B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 841BB2FA273BA3B000C9450B;
+			remoteInfo = "Asimple_e-market_application";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2E2B601C77AAD7457F844A51 /* Pods-Asimple_e-market_application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asimple_e-market_application.release.xcconfig"; path = "Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application.release.xcconfig"; sourceTree = "<group>"; };
@@ -37,6 +48,8 @@
 		841BB31D273BC3C400C9450B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		841BB31F273BCBD700C9450B /* StoreModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModelView.swift; sourceTree = "<group>"; };
 		841BB321273BCBEA00C9450B /* ProductModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelView.swift; sourceTree = "<group>"; };
+		84FCE59A273CFE6800F66ED1 /* Asimple_e-market_applicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asimple_e-market_applicationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84FCE59C273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asimple_e_market_applicationTests.swift; sourceTree = "<group>"; };
 		EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asimple_e-market_application.debug.xcconfig"; path = "Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +59,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				09E73909FFF705B8E468BB75 /* Pods_Asimple_e_market_application.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FCE597273CFE6800F66ED1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				841BB2FD273BA3B000C9450B /* Asimple_e-market_application */,
+				84FCE59B273CFE6800F66ED1 /* Asimple_e-market_applicationTests */,
 				841BB2FC273BA3B000C9450B /* Products */,
 				41A94C037EBD52FEBD272B1F /* Pods */,
 				CDC6E3E3235F39DA3B3ECDA2 /* Frameworks */,
@@ -75,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				841BB2FB273BA3B000C9450B /* Asimple_e-market_application.app */,
+				84FCE59A273CFE6800F66ED1 /* Asimple_e-market_applicationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,6 +176,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		84FCE59B273CFE6800F66ED1 /* Asimple_e-market_applicationTests */ = {
+			isa = PBXGroup;
+			children = (
+				84FCE59C273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift */,
+			);
+			path = "Asimple_e-market_applicationTests";
+			sourceTree = "<group>";
+		};
 		CDC6E3E3235F39DA3B3ECDA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +214,24 @@
 			productReference = 841BB2FB273BA3B000C9450B /* Asimple_e-market_application.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84FCE599273CFE6800F66ED1 /* Asimple_e-market_applicationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84FCE5A0273CFE6800F66ED1 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationTests" */;
+			buildPhases = (
+				84FCE596273CFE6800F66ED1 /* Sources */,
+				84FCE597273CFE6800F66ED1 /* Frameworks */,
+				84FCE598273CFE6800F66ED1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84FCE59F273CFE6800F66ED1 /* PBXTargetDependency */,
+			);
+			name = "Asimple_e-market_applicationTests";
+			productName = "Asimple_e-market_applicationTests";
+			productReference = 84FCE59A273CFE6800F66ED1 /* Asimple_e-market_applicationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,6 +244,10 @@
 				TargetAttributes = {
 					841BB2FA273BA3B000C9450B = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					84FCE599273CFE6800F66ED1 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 841BB2FA273BA3B000C9450B;
 					};
 				};
 			};
@@ -213,6 +265,7 @@
 			projectRoot = "";
 			targets = (
 				841BB2FA273BA3B000C9450B /* Asimple_e-market_application */,
+				84FCE599273CFE6800F66ED1 /* Asimple_e-market_applicationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,6 +278,13 @@
 				841BB30B273BA3B800C9450B /* LaunchScreen.storyboard in Resources */,
 				841BB308273BA3B800C9450B /* Assets.xcassets in Resources */,
 				841BB306273BA3B000C9450B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84FCE598273CFE6800F66ED1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +348,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84FCE596273CFE6800F66ED1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84FCE59D273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84FCE59F273CFE6800F66ED1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 841BB2FA273BA3B000C9450B /* Asimple_e-market_application */;
+			targetProxy = 84FCE59E273CFE6800F66ED1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		841BB304273BA3B000C9450B /* Main.storyboard */ = {
@@ -486,6 +562,54 @@
 			};
 			name = Release;
 		};
+		84FCE5A1273CFE6800F66ED1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3FDR68B4T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Asimple_e-market_application.app/Asimple_e-market_application";
+			};
+			name = Debug;
+		};
+		84FCE5A2273CFE6800F66ED1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3FDR68B4T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Asimple_e-market_application.app/Asimple_e-market_application";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -503,6 +627,15 @@
 			buildConfigurations = (
 				841BB310273BA3B800C9450B /* Debug */,
 				841BB311273BA3B800C9450B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84FCE5A0273CFE6800F66ED1 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FCE5A1273CFE6800F66ED1 /* Debug */,
+				84FCE5A2273CFE6800F66ED1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
