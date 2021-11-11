@@ -88,7 +88,60 @@ extension APIService {
 }
 // MARK: - Place order
 extension APIService {
-    func apiToPlaceOrder(completion : @escaping (Int) -> ()) {
+    func apiToPlaceOrder(productsData : [Products], completion : @escaping (Int) -> ()) {
+        var products: [[String : Any]] = [[String : Any]]()
         
+        for i in 0..<productsData.count {
+            products.append([
+                "name": productsData[i].name,
+                "price": productsData[i].price,
+                "imageUrl": productsData[i].imageUrl
+            ])
+        }
+        
+        let parameters = [
+            "products": products,
+            "delivery_address": "CDC O4 Office, Bangkapi, Bangkok, 10310"
+        ] as [String : Any]
+        print(parameters)
+        let postData = try? JSONSerialization.data(withJSONObject: parameters)
+
+        var request = URLRequest(url: URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/order")!,timeoutInterval: Double.infinity)
+        request.addValue("*/*", forHTTPHeaderField: "accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        request.httpMethod = "POST"
+        request.httpBody = postData
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+
+            let statusCode = response?.getStatusCode()
+            print("00000000000000000000000 \(String(describing: statusCode))")
+
+            // If error found
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+
+            // If response data found
+            print(String(data: data, encoding: .utf8)!)
+            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
+            if let responseJSON = responseJSON as? [String: Any] {
+                print(responseJSON)
+            }
+            completion(statusCode ?? -1)
+        }
+
+        task.resume()
+    }
+}
+
+extension URLResponse {
+    func getStatusCode() -> Int? {
+        if let httpResponse = self as? HTTPURLResponse {
+            return httpResponse.statusCode
+        }
+        return nil
     }
 }
