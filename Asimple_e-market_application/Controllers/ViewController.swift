@@ -58,6 +58,7 @@ class ViewController: UIViewController {
                 }
                 else {
                     print("Store info not found!")
+                    self.showWarnings(title: "Store info not found!", alertMessage: "")
                 }
             }
         }
@@ -79,6 +80,7 @@ class ViewController: UIViewController {
                 }
                 else {
                     print("No product founds!")
+                    self.showWarnings(title: "No product founds!", alertMessage: "")
                 }
             }
         }
