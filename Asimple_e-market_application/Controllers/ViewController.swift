@@ -89,7 +89,9 @@ class ViewController: UIViewController {
     private func callToPlaceOrder(products : [Products]) {
         let apiService : APIService = APIService()
         apiService.apiToPlaceOrder(productsData: products) { (statusCode) in
-            self.showWarnings(title: "Placed order successfully", alertMessage: "Your order was placed successfully.")
+            if statusCode == 201 {
+                self.showWarnings(title: "Placed order successfully", alertMessage: "Your order was placed successfully.")
+            }
         }
     }
 }
@@ -124,6 +126,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
+        cell.accessibilityIdentifier = "Cell_\(indexPath.row)"
         cell.selectionStyle = .none
         cell.productImageLink.sd_setImage(with: URL(string: self.productViewModel.storeData[indexPath.row].imageUrl), placeholderImage: UIImage(named: "demo"))
         cell.productNameLabel.text = "Product Name: \(self.productViewModel.storeData[indexPath.row].name)"

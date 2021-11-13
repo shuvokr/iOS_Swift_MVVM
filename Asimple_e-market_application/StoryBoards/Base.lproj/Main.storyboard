@@ -70,19 +70,8 @@
                                     <constraint firstItem="wUY-v7-ncO" firstAttribute="top" secondItem="NQ4-QL-83q" secondAttribute="bottom" constant="2" id="yNH-Yx-Vn9"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejt-v8-kMw">
-                                <rect key="frame" x="137" y="831" width="140" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="5eP-dd-Tts"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Place Order"/>
-                                <connections>
-                                    <action selector="placeOrderAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4eM-b7-nPV"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kE2-OP-vE6">
-                                <rect key="frame" x="20" y="154" width="374" height="669"/>
+                                <rect key="frame" x="20" y="154" width="374" height="660"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewcell" rowHeight="115" id="Cm0-Bv-CPa" customClass="TableViewCell" customModule="Asimple_e_market_application" customModuleProvider="target">
@@ -134,19 +123,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-bL-pps">
+                                <rect key="frame" x="20" y="822" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.42352941179999998" green="0.23529411759999999" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Lff-ZH-Xrn"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Place Order">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadious">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="placeOrderAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z3O-pc-5wI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ejt-v8-kMw" firstAttribute="top" secondItem="kE2-OP-vE6" secondAttribute="bottom" constant="8" symbolic="YES" id="0G5-Y3-Ek3"/>
-                            <constraint firstItem="ejt-v8-kMw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3iu-UZ-pjZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ym8-ud-0uC" secondAttribute="trailing" constant="20" id="4jP-Cx-enU"/>
                             <constraint firstItem="ym8-ud-0uC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5KR-Jv-jE4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kE2-OP-vE6" secondAttribute="trailing" constant="20" id="89A-m2-Zpk"/>
                             <constraint firstItem="kE2-OP-vE6" firstAttribute="top" secondItem="ym8-ud-0uC" secondAttribute="bottom" constant="8" symbolic="YES" id="CwD-bx-NGD"/>
-                            <constraint firstItem="ejt-v8-kMw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MGb-jb-461"/>
+                            <constraint firstItem="Hi8-bL-pps" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ItB-Rt-PVy"/>
+                            <constraint firstItem="Hi8-bL-pps" firstAttribute="top" secondItem="kE2-OP-vE6" secondAttribute="bottom" constant="8" symbolic="YES" id="Mg9-Bt-xiW"/>
                             <constraint firstItem="kE2-OP-vE6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="W3r-zE-mdh"/>
+                            <constraint firstItem="Hi8-bL-pps" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ghA-6H-Rdo"/>
                             <constraint firstItem="ym8-ud-0uC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mv1-Vh-qdA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hi8-bL-pps" secondAttribute="trailing" constant="20" id="noo-aU-eyC"/>
                         </constraints>
                     </view>
                     <connections>

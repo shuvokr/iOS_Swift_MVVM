@@ -19,10 +19,25 @@
 		841BB31E273BC3C400C9450B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31D273BC3C400C9450B /* Model.swift */; };
 		841BB320273BCBD700C9450B /* StoreModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31F273BCBD700C9450B /* StoreModelView.swift */; };
 		841BB322273BCBEA00C9450B /* ProductModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB321273BCBEA00C9450B /* ProductModelView.swift */; };
+		8438E919273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438E918273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift */; };
 		84FCE59D273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE59C273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8438E91C273D456F00EA5717 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 841BB2F3273BA3AF00C9450B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 841BB2FA273BA3B000C9450B;
+			remoteInfo = "Asimple_e-market_application";
+		};
+		849DCA5F273FF74B00652629 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 841BB2F3273BA3AF00C9450B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 841BB2FA273BA3B000C9450B;
+			remoteInfo = "Asimple_e-market_application";
+		};
 		84FCE59E273CFE6800F66ED1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 841BB2F3273BA3AF00C9450B /* Project object */;
@@ -48,6 +63,9 @@
 		841BB31D273BC3C400C9450B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		841BB31F273BCBD700C9450B /* StoreModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModelView.swift; sourceTree = "<group>"; };
 		841BB321273BCBEA00C9450B /* ProductModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelView.swift; sourceTree = "<group>"; };
+		8438E916273D456F00EA5717 /* Asimple_e-market_applicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asimple_e-market_applicationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8438E918273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asimple_e_market_applicationUITests.swift; sourceTree = "<group>"; };
+		849DCA59273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asimple_e-market_applicationPOPUPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FCE59A273CFE6800F66ED1 /* Asimple_e-market_applicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asimple_e-market_applicationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FCE59C273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asimple_e_market_applicationTests.swift; sourceTree = "<group>"; };
 		EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asimple_e-market_application.debug.xcconfig"; path = "Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +77,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				09E73909FFF705B8E468BB75 /* Pods_Asimple_e_market_application.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8438E913273D456F00EA5717 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849DCA56273FF74B00652629 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +118,7 @@
 			children = (
 				841BB2FD273BA3B000C9450B /* Asimple_e-market_application */,
 				84FCE59B273CFE6800F66ED1 /* Asimple_e-market_applicationTests */,
+				8438E917273D456F00EA5717 /* Asimple_e-market_applicationUITests */,
 				841BB2FC273BA3B000C9450B /* Products */,
 				41A94C037EBD52FEBD272B1F /* Pods */,
 				CDC6E3E3235F39DA3B3ECDA2 /* Frameworks */,
@@ -97,6 +130,8 @@
 			children = (
 				841BB2FB273BA3B000C9450B /* Asimple_e-market_application.app */,
 				84FCE59A273CFE6800F66ED1 /* Asimple_e-market_applicationTests.xctest */,
+				8438E916273D456F00EA5717 /* Asimple_e-market_applicationUITests.xctest */,
+				849DCA59273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +211,14 @@
 			path = TableViewCells;
 			sourceTree = "<group>";
 		};
+		8438E917273D456F00EA5717 /* Asimple_e-market_applicationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8438E918273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift */,
+			);
+			path = "Asimple_e-market_applicationUITests";
+			sourceTree = "<group>";
+		};
 		84FCE59B273CFE6800F66ED1 /* Asimple_e-market_applicationTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +257,42 @@
 			productReference = 841BB2FB273BA3B000C9450B /* Asimple_e-market_application.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8438E915273D456F00EA5717 /* Asimple_e-market_applicationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8438E920273D456F00EA5717 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationUITests" */;
+			buildPhases = (
+				8438E912273D456F00EA5717 /* Sources */,
+				8438E913273D456F00EA5717 /* Frameworks */,
+				8438E914273D456F00EA5717 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8438E91D273D456F00EA5717 /* PBXTargetDependency */,
+			);
+			name = "Asimple_e-market_applicationUITests";
+			productName = "Asimple_e-market_applicationUITests";
+			productReference = 8438E916273D456F00EA5717 /* Asimple_e-market_applicationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		849DCA58273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849DCA61273FF74B00652629 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationPOPUPUITests" */;
+			buildPhases = (
+				849DCA55273FF74B00652629 /* Sources */,
+				849DCA56273FF74B00652629 /* Frameworks */,
+				849DCA57273FF74B00652629 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				849DCA60273FF74B00652629 /* PBXTargetDependency */,
+			);
+			name = "Asimple_e-market_applicationPOPUPUITests";
+			productName = "Asimple_e-market_applicationPOPUPUITests";
+			productReference = 849DCA59273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		84FCE599273CFE6800F66ED1 /* Asimple_e-market_applicationTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84FCE5A0273CFE6800F66ED1 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationTests" */;
@@ -245,6 +324,14 @@
 					841BB2FA273BA3B000C9450B = {
 						CreatedOnToolsVersion = 13.1;
 					};
+					8438E915273D456F00EA5717 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 841BB2FA273BA3B000C9450B;
+					};
+					849DCA58273FF74B00652629 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 841BB2FA273BA3B000C9450B;
+					};
 					84FCE599273CFE6800F66ED1 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 841BB2FA273BA3B000C9450B;
@@ -266,6 +353,8 @@
 			targets = (
 				841BB2FA273BA3B000C9450B /* Asimple_e-market_application */,
 				84FCE599273CFE6800F66ED1 /* Asimple_e-market_applicationTests */,
+				8438E915273D456F00EA5717 /* Asimple_e-market_applicationUITests */,
+				849DCA58273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -278,6 +367,20 @@
 				841BB30B273BA3B800C9450B /* LaunchScreen.storyboard in Resources */,
 				841BB308273BA3B800C9450B /* Assets.xcassets in Resources */,
 				841BB306273BA3B000C9450B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8438E914273D456F00EA5717 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849DCA57273FF74B00652629 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +451,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8438E912273D456F00EA5717 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8438E919273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849DCA55273FF74B00652629 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84FCE596273CFE6800F66ED1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +477,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8438E91D273D456F00EA5717 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 841BB2FA273BA3B000C9450B /* Asimple_e-market_application */;
+			targetProxy = 8438E91C273D456F00EA5717 /* PBXContainerItemProxy */;
+		};
+		849DCA60273FF74B00652629 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 841BB2FA273BA3B000C9450B /* Asimple_e-market_application */;
+			targetProxy = 849DCA5F273FF74B00652629 /* PBXContainerItemProxy */;
+		};
 		84FCE59F273CFE6800F66ED1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 841BB2FA273BA3B000C9450B /* Asimple_e-market_application */;
@@ -562,6 +690,98 @@
 			};
 			name = Release;
 		};
+		8438E91E273D456F00EA5717 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3FDR68B4T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Asimple_e-market_application";
+			};
+			name = Debug;
+		};
+		8438E91F273D456F00EA5717 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3FDR68B4T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Asimple_e-market_application";
+			};
+			name = Release;
+		};
+		849DCA62273FF74B00652629 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3FDR68B4T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationPOPUPUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Asimple_e-market_application";
+			};
+			name = Debug;
+		};
+		849DCA63273FF74B00652629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q3FDR68B4T;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationPOPUPUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Asimple_e-market_application";
+			};
+			name = Release;
+		};
 		84FCE5A1273CFE6800F66ED1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -627,6 +847,24 @@
 			buildConfigurations = (
 				841BB310273BA3B800C9450B /* Debug */,
 				841BB311273BA3B800C9450B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8438E920273D456F00EA5717 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8438E91E273D456F00EA5717 /* Debug */,
+				8438E91F273D456F00EA5717 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		849DCA61273FF74B00652629 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationPOPUPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849DCA62273FF74B00652629 /* Debug */,
+				849DCA63273FF74B00652629 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
