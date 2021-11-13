@@ -1,0 +1,63 @@
+From e0ebd03bcd20629a82b7f78c5c082c78f30a1aec Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 22:02:08 +0600
+Subject: [PATCH 15/29] - Added network call for store information.
+
+---
+ .../WebServices/APIService.swift              | 33 +++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/Asimple_e-market_application/WebServices/APIService.swift b/Asimple_e-market_application/WebServices/APIService.swift
+index 3da7db2..d5af0e6 100644
+--- a/Asimple_e-market_application/WebServices/APIService.swift
++++ b/Asimple_e-market_application/WebServices/APIService.swift
+@@ -6,6 +6,8 @@
+ //
+ 
+ import UIKit
++import Alamofire
++import SwiftyJSON
+ 
+ class APIService: NSObject {
+     private let storeInfoURL = URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/storeInfo")!
+@@ -17,6 +19,37 @@ class APIService: NSObject {
+ extension APIService {
+     func apiToGetStoreInfo(completion : @escaping (StoreInfo) -> ()) {
+         
++        let urlTo = URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/storeInfo")!
++        AF.request(
++            urlTo,
++            method: .get
++            ).responseJSON {
++            (response) in
++            switch response.result {
++                
++                case .success(let json):
++                    let jsonData = JSON(json as Any)
++                    guard let statusCode = response.response?.statusCode else { return }
++                    if(statusCode == 200) {
++                        print(jsonData)
++                        var storeData = StoreInfo()
++                        storeData.name = "Store Name: \(jsonData["name"].stringValue)"
++                        storeData.rating = "Rating: \(jsonData["rating"].stringValue)"
++                        storeData.closingTime = "Opening Time: \(jsonData["openingTime"].stringValue)"
++                        storeData.openingTime = "Closing Time: \(jsonData["closingTime"].stringValue)"
++                        
++                        completion(storeData)
++                    }
++                    else {
++                        print("Found status code ==> \(statusCode)")
++                        completion(StoreInfo())
++                    }
++
++                case .failure(let error):
++                    print("getStoreInfo request error: \(error)")
++                    completion(StoreInfo())
++            }
++        }
+     }
+ }
+ // MARK: - Load Products
+-- 
+2.30.1 (Apple Git-130)
+

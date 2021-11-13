@@ -1,0 +1,42 @@
+From 7dc4a21263e5d8185d84d0ba8bc6805d8559846a Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 14:42:09 +0600
+Subject: [PATCH 06/29] - Added table cell handler.
+
+---
+ .../TableViewCells/TableViewCell.swift        | 23 +++++++++++++++++++
+ 1 file changed, 23 insertions(+)
+ create mode 100644 Asimple_e-market_application/TableViewCells/TableViewCell.swift
+
+diff --git a/Asimple_e-market_application/TableViewCells/TableViewCell.swift b/Asimple_e-market_application/TableViewCells/TableViewCell.swift
+new file mode 100644
+index 0000000..e52a900
+--- /dev/null
++++ b/Asimple_e-market_application/TableViewCells/TableViewCell.swift
+@@ -0,0 +1,23 @@
++//
++//  TableViewCell.swift
++//  Asimple_e-market_application
++//
++//  Created by Shuvo on 11/10/21.
++//
++
++import UIKit
++
++class TableViewCell: UITableViewCell {
++
++    override func awakeFromNib() {
++        super.awakeFromNib()
++        // Initialization code
++    }
++
++    override func setSelected(_ selected: Bool, animated: Bool) {
++        super.setSelected(selected, animated: animated)
++
++        // Configure the view for the selected state
++    }
++
++}
+-- 
+2.30.1 (Apple Git-130)
+

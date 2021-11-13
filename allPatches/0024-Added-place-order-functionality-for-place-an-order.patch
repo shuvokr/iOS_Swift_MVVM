@@ -1,0 +1,126 @@
+From 808b8f3cf9a32b60faeaea6bbd582ffd7c15120a Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Thu, 11 Nov 2021 12:17:01 +0600
+Subject: [PATCH 24/29] - Added place order functionality for place an order.
+
+---
+ .../Controllers/ViewController.swift          | 66 ++++++++++++++++---
+ 1 file changed, 58 insertions(+), 8 deletions(-)
+
+diff --git a/Asimple_e-market_application/Controllers/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+index 63433b7..db7ac77 100644
+--- a/Asimple_e-market_application/Controllers/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -18,6 +18,7 @@ class ViewController: UIViewController {
+     
+     private var storeViewModel : StoreModelView!
+     private var productViewModel : ProductModelView!
++    private var isSelectedProduct : [Bool] = [Bool]()
+     
+     override func viewDidLoad() {
+         super.viewDidLoad()
+@@ -29,17 +30,35 @@ class ViewController: UIViewController {
+         self.callToProductViewModelForUIUpdate()
+     }
+     @IBAction func placeOrderAction(_ sender: UIButton) {
+-        self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
++        
++        var selectedProduct : [Products] = [Products]()
++        for i in 0..<self.isSelectedProduct.count {
++            if isSelectedProduct[i] {
++                selectedProduct.append(self.productViewModel.storeData[i])
++            }
++        }
++        
++        if selectedProduct.count == 0 {
++            self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
++        }
++        else {
++            self.callToPlaceOrder(products: selectedProduct)
++        }
+     }
+     
+     private func callToStoreViewModelForUIUpdate() {
+         self.storeViewModel = StoreModelView()
+         self.storeViewModel.bindStoreInfoViewModelToController = {
+             DispatchQueue.main.async {
+-                self.storeNameLabel.text = self.storeViewModel.storeData.name
+-                self.storeRatingLabel.text = self.storeViewModel.storeData.rating
+-                self.storeOpenTimeLabel.text = self.storeViewModel.storeData.openingTime
+-                self.storeCloseTimeLabel.text = self.storeViewModel.storeData.closingTime
++                if self.storeViewModel.storeData != nil {
++                    self.storeNameLabel.text = self.storeViewModel.storeData.name
++                    self.storeRatingLabel.text = self.storeViewModel.storeData.rating
++                    self.storeOpenTimeLabel.text = self.storeViewModel.storeData.openingTime
++                    self.storeCloseTimeLabel.text = self.storeViewModel.storeData.closingTime
++                }
++                else {
++                    print("Store info not found!")
++                }
+             }
+         }
+     }
+@@ -47,13 +66,30 @@ class ViewController: UIViewController {
+     private func callToProductViewModelForUIUpdate() {
+         self.productViewModel = ProductModelView()
+         self.storeViewModel.bindStoreInfoViewModelToController = {
++        
+             DispatchQueue.main.async {
+-                self.productsTable.delegate = self
+-                self.productsTable.dataSource = self
+-                self.productsTable.reloadData()
++                if self.productViewModel.storeData != nil {
++                    let cnt = self.productViewModel.storeData?.count ?? 0
++                    for _ in 0..<cnt {
++                        self.isSelectedProduct.append(false)
++                    }
++                    self.productsTable.delegate = self
++                    self.productsTable.dataSource = self
++                    self.productsTable.reloadData()
++                }
++                else {
++                    print("No product founds!")
++                }
+             }
+         }
+     }
++    
++    private func callToPlaceOrder(products : [Products]) {
++        let apiService : APIService = APIService()
++        apiService.apiToPlaceOrder(productsData: products) { (statusCode) in
++            self.showWarnings(title: "Placed order successfully", alertMessage: "Your order was placed successfully.")
++        }
++    }
+ }
+ 
+ // MARK: - Alert Handler
+@@ -86,12 +122,26 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
++        cell.selectionStyle = .none
+         cell.productImageLink.sd_setImage(with: URL(string: self.productViewModel.storeData[indexPath.row].imageUrl), placeholderImage: UIImage(named: "demo"))
+         cell.productNameLabel.text = "Product Name: \(self.productViewModel.storeData[indexPath.row].name)"
+         cell.productPriceLabel.text = "Product price: \(self.productViewModel.storeData[indexPath.row].price) TK"
+         return cell
+     }
+     
++    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
++        let cell = tableView.cellForRow(at: indexPath)
++        
++        if self.isSelectedProduct[indexPath.row] {
++            cell?.backgroundColor = .white
++            self.isSelectedProduct[indexPath.row] = false
++        }
++        else {
++            cell?.backgroundColor = .green
++            self.isSelectedProduct[indexPath.row] = true
++        }
++    }
++    
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+         return 115
+     }
+-- 
+2.30.1 (Apple Git-130)
+

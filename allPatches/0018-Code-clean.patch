@@ -1,0 +1,124 @@
+From 991f1120825e2b4ab5c9117c18abbf9cdafaf1a0 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 22:10:47 +0600
+Subject: [PATCH 18/29] - Code clean.
+
+---
+ .../project.pbxproj                             | 17 ++++++++++++++++-
+ .../Controllers/ViewController.swift            |  2 +-
+ .../ModelView/StoreModelView.swift              |  1 -
+ .../WebServices/APIService.swift                |  1 -
+ 4 files changed, 17 insertions(+), 4 deletions(-)
+
+diff --git a/Asimple_e-market_application.xcodeproj/project.pbxproj b/Asimple_e-market_application.xcodeproj/project.pbxproj
+index 2fcc691..78c97a3 100644
+--- a/Asimple_e-market_application.xcodeproj/project.pbxproj
++++ b/Asimple_e-market_application.xcodeproj/project.pbxproj
+@@ -15,6 +15,10 @@
+ 		841BB308273BA3B800C9450B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841BB307273BA3B800C9450B /* Assets.xcassets */; };
+ 		841BB30B273BA3B800C9450B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841BB309273BA3B800C9450B /* LaunchScreen.storyboard */; };
+ 		841BB31A273BBB1300C9450B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB319273BBB1300C9450B /* TableViewCell.swift */; };
++		841BB31C273BC27300C9450B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31B273BC27300C9450B /* APIService.swift */; };
++		841BB31E273BC3C400C9450B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31D273BC3C400C9450B /* Model.swift */; };
++		841BB320273BCBD700C9450B /* StoreModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31F273BCBD700C9450B /* StoreModelView.swift */; };
++		841BB322273BCBEA00C9450B /* ProductModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB321273BCBEA00C9450B /* ProductModelView.swift */; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXFileReference section */
+@@ -29,6 +33,10 @@
+ 		841BB30A273BA3B800C9450B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+ 		841BB30C273BA3B800C9450B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+ 		841BB319273BBB1300C9450B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
++		841BB31B273BC27300C9450B /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
++		841BB31D273BC3C400C9450B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
++		841BB31F273BCBD700C9450B /* StoreModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModelView.swift; sourceTree = "<group>"; };
++		841BB321273BCBEA00C9450B /* ProductModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelView.swift; sourceTree = "<group>"; };
+ 		EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asimple_e-market_application.debug.xcconfig"; path = "Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application.debug.xcconfig"; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
+@@ -50,7 +58,6 @@
+ 				EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */,
+ 				2E2B601C77AAD7457F844A51 /* Pods-Asimple_e-market_application.release.xcconfig */,
+ 			);
+-			name = Pods;
+ 			path = Pods;
+ 			sourceTree = "<group>";
+ 		};
+@@ -117,6 +124,8 @@
+ 		841BB315273BA81800C9450B /* ModelView */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				841BB31F273BCBD700C9450B /* StoreModelView.swift */,
++				841BB321273BCBEA00C9450B /* ProductModelView.swift */,
+ 			);
+ 			path = ModelView;
+ 			sourceTree = "<group>";
+@@ -124,6 +133,7 @@
+ 		841BB316273BA82500C9450B /* Model */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				841BB31D273BC3C400C9450B /* Model.swift */,
+ 			);
+ 			path = Model;
+ 			sourceTree = "<group>";
+@@ -131,6 +141,7 @@
+ 		841BB317273BA82E00C9450B /* WebServices */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				841BB31B273BC27300C9450B /* APIService.swift */,
+ 			);
+ 			path = WebServices;
+ 			sourceTree = "<group>";
+@@ -267,8 +278,12 @@
+ 			buildActionMask = 2147483647;
+ 			files = (
+ 				841BB303273BA3B000C9450B /* ViewController.swift in Sources */,
++				841BB31C273BC27300C9450B /* APIService.swift in Sources */,
+ 				841BB31A273BBB1300C9450B /* TableViewCell.swift in Sources */,
++				841BB320273BCBD700C9450B /* StoreModelView.swift in Sources */,
++				841BB31E273BC3C400C9450B /* Model.swift in Sources */,
+ 				841BB2FF273BA3B000C9450B /* AppDelegate.swift in Sources */,
++				841BB322273BCBEA00C9450B /* ProductModelView.swift in Sources */,
+ 				841BB301273BA3B000C9450B /* SceneDelegate.swift in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+diff --git a/Asimple_e-market_application/Controllers/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+index 0146973..c5bef0c 100644
+--- a/Asimple_e-market_application/Controllers/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -35,7 +35,7 @@ class ViewController: UIViewController {
+     private func callToViewModelForUIUpdate() {
+         self.storeViewModel = StoreModelView()
+         self.storeViewModel.bindStoreInfoViewModelToController = {
+-            print(self.storeViewModel.storeData)
++            print(self.storeViewModel.storeData ?? "nil")
+         }
+     }
+ }
+diff --git a/Asimple_e-market_application/ModelView/StoreModelView.swift b/Asimple_e-market_application/ModelView/StoreModelView.swift
+index b434335..a3cb05d 100644
+--- a/Asimple_e-market_application/ModelView/StoreModelView.swift
++++ b/Asimple_e-market_application/ModelView/StoreModelView.swift
+@@ -19,7 +19,6 @@ class StoreModelView: NSObject {
+     
+     override init() {
+         super.init()
+-        print("5")
+         self.apiService =  APIService()
+         callFuncToGetStoreData()
+     }
+diff --git a/Asimple_e-market_application/WebServices/APIService.swift b/Asimple_e-market_application/WebServices/APIService.swift
+index d5af0e6..0e6bd47 100644
+--- a/Asimple_e-market_application/WebServices/APIService.swift
++++ b/Asimple_e-market_application/WebServices/APIService.swift
+@@ -31,7 +31,6 @@ extension APIService {
+                     let jsonData = JSON(json as Any)
+                     guard let statusCode = response.response?.statusCode else { return }
+                     if(statusCode == 200) {
+-                        print(jsonData)
+                         var storeData = StoreInfo()
+                         storeData.name = "Store Name: \(jsonData["name"].stringValue)"
+                         storeData.rating = "Rating: \(jsonData["rating"].stringValue)"
+-- 
+2.30.1 (Apple Git-130)
+

@@ -1,0 +1,32 @@
+From 0247b19ffb0b67aa25512fb4ff50ebb5673131ef Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Thu, 11 Nov 2021 12:19:45 +0600
+Subject: [PATCH 26/29] - Added alert for no data found case.
+
+---
+ Asimple_e-market_application/Controllers/ViewController.swift | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Asimple_e-market_application/Controllers/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+index db7ac77..f9f9bb5 100644
+--- a/Asimple_e-market_application/Controllers/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -58,6 +58,7 @@ class ViewController: UIViewController {
+                 }
+                 else {
+                     print("Store info not found!")
++                    self.showWarnings(title: "Store info not found!", alertMessage: "")
+                 }
+             }
+         }
+@@ -79,6 +80,7 @@ class ViewController: UIViewController {
+                 }
+                 else {
+                     print("No product founds!")
++                    self.showWarnings(title: "No product founds!", alertMessage: "")
+                 }
+             }
+         }
+-- 
+2.30.1 (Apple Git-130)
+

@@ -1,0 +1,159 @@
+From 7546d29e99e29209518300fcaade2893d2b2e5c3 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 15:00:02 +0600
+Subject: [PATCH 09/29] - Added demo image set.
+
+---
+ .../demo.imageset/Contents.json               |  23 ++++++++++++++++++
+ .../demo.imageset/images-1.png                | Bin 0 -> 1439 bytes
+ .../demo.imageset/images-2.png                | Bin 0 -> 1439 bytes
+ .../Assets.xcassets/demo.imageset/images.png  | Bin 0 -> 1439 bytes
+ 4 files changed, 23 insertions(+)
+ create mode 100644 Asimple_e-market_application/Assets.xcassets/demo.imageset/Contents.json
+ create mode 100644 Asimple_e-market_application/Assets.xcassets/demo.imageset/images-1.png
+ create mode 100644 Asimple_e-market_application/Assets.xcassets/demo.imageset/images-2.png
+ create mode 100644 Asimple_e-market_application/Assets.xcassets/demo.imageset/images.png
+
+diff --git a/Asimple_e-market_application/Assets.xcassets/demo.imageset/Contents.json b/Asimple_e-market_application/Assets.xcassets/demo.imageset/Contents.json
+new file mode 100644
+index 0000000..1c5ef46
+--- /dev/null
++++ b/Asimple_e-market_application/Assets.xcassets/demo.imageset/Contents.json
+@@ -0,0 +1,23 @@
++{
++  "images" : [
++    {
++      "filename" : "images.png",
++      "idiom" : "universal",
++      "scale" : "1x"
++    },
++    {
++      "filename" : "images-1.png",
++      "idiom" : "universal",
++      "scale" : "2x"
++    },
++    {
++      "filename" : "images-2.png",
++      "idiom" : "universal",
++      "scale" : "3x"
++    }
++  ],
++  "info" : {
++    "author" : "xcode",
++    "version" : 1
++  }
++}
+diff --git a/Asimple_e-market_application/Assets.xcassets/demo.imageset/images-1.png b/Asimple_e-market_application/Assets.xcassets/demo.imageset/images-1.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b56b23bc99a94a7630fd136ad7e84540faeb51b9
+GIT binary patch
+literal 1439
+zcmZ{kYdF&j9LJ|AJK9XF3^`h<(?Qq;LoPA5xy_}8)-#k_E~80{5IO&%kb|D(zAi55
+zP*e<=V^eZ!7~zpiBe~A)XmfXTp5C43y!d^--{<q<_wt)Ua<+xZs>p&sAeg-!!EGmn
+z-wy)b;ZI?Q?RFxR<mh3&y}i9t)6>&4Gc)b&?U$C8#>dAc5=m@qtVkrnVzHk;e`YWk
+z91e#-APfx+m6esT+3c#SDl(aj$Ky#PQh0bc5{WD>E}oj2f<Pec?d<>nXliOQnar-P
+zE`NW2b#-+rm8z|+4d)7OgFw=A_JmU&jC@i440&2l-bPDyzpnK@R{~;rb7V0;$u1b1
+z<+%1TEhKK;P_gEW;9VI19mW!ZN|yhQyPWpT$t4=59*#SBZsW8K?vd|O=UrgR%1WgK
+z4hv?Q?TEGiiq7zrX!pUWeqXE)cfKp;Uf^ozX4BNG5upW4>0@pETY`;3@X9{JIW;hD
+zBUF0m%1DAao_qhubd3yHU5{%U*xv}3QOg#-l&=-FT7oas<;g}?#N!Yaz$NUJx~8TR
+zeh(~wN*o=;3^jXj3HxS&n6i;x9T|}|j#fQ-hm{>j^kD}asJ+>YG&`QD9%;re<R2az
+zP_4{qdy8io=f$0O5nJ5xrE{Zqy||p$Y5<_4XhCu(37Q4;t3leex=19~;pmbv`3W&H
+zR3tc<iXPO=JoB7<I==5yiV@;`o$~F(?pn_Z*_^D>tBX>i;4hXG-qa{tFg&0F#avSW
+zKNSD2|0LFuUU{mZ@X;v(RJba-by+46gJ|LfKRx~1M6^>2e}&3_Hepwx`HlXU;6Qpq
+zDVt6}MGsYdvq@v`Vf2YTipt!1Zl1VxKNBm|yaSbQNTc(J40Nz~{9_MDOy)4v=R?SJ
+z9!AJ~xc$!QL@_lWx^;-V=Ihni?@z&h4GMU#pTemeGB!D1zi$7jQ{UDh8ZZDb(A?Gz
+zH=1@JKM{J{t8ITi!`8@PqdXC6UUPQ)$*~Vz@3TVyw6?^&)}$kYXOw$itj|S$_0Ll5
+zsGanjaY;7UgZr)2NW98Z2h^S(?SuNRm~4_wR&AH=$8_Kr4(McI@Y=7b(+595Y2IKY
+zIb(K|P_S-{XsntViHPi-;}u{|(qCvS2laA%MQKNLDdyg*v4|LOPlNB6X7l5+i7s&W
+zxm+Oc>x~3=*RwM&(q>A_VUz8L(zHnBv%>u5x4c5wkg|rkiy>;~%`EzPpp_&=OhJdH
+z2e8;BRBlXIkvsZO#?MF@QAmtF<%{3?FV^$k38SV)RwDF9SshI2eYiWe=c3z|)||_x
+zZqw$ZGK#$?tj<+uX*{sUbnFrWM#t@~_}fBNXFS77D-eHNN9WbCKebhxBaX#yd;9mp
+zyZ!sUY10S#BfPeHUl(BFd|1*5o$D~TBtfUO)BFN20ccVA87}A4dd@IOioGXf#Y9nc
+z<N<lLH#Hun70AgQtyXMMpk*R@A`b6v^rT<F568g-3(j|*{V`^6tySKRI}j6*Yc3@r
+zF0RO85`i>TCe@nFS4*5okqPRj2oex42OL3#l<qLo4_g^prIwIF$_;GPTsyIqf3M{T
+zbrUJ8HC)Dhyl`ua3Be-fnAPkF4~T_s8$r3gsb!e77vl;D<i$xbz%FGu<K!6Ot~U!|
+zov0qVlVrQP0zT*xWx-|LB%NqWM#`BcUtBcgMJ%9tWR>IrE}TWKyRJ9;rLZ&AQ)9QD
+zqc0?f0@j1Z&(9#9uQa?C#+ItVZQJ!lu!aVk8q|1hFHjC;F{s@GdO0Y>Ud$(z5^S<t
+zWpD_SFHdBbJQiLya0UkB0OC3|`%p0o)_oJeIjXA&^x}f-xXY{`qKL%p8=a=P9p9!&
+j{aB=bXX*c-f!dN%@CmW%E6Oa~nOTs%wKJj8(kJO3hJmOA
+
+literal 0
+HcmV?d00001
+
+diff --git a/Asimple_e-market_application/Assets.xcassets/demo.imageset/images-2.png b/Asimple_e-market_application/Assets.xcassets/demo.imageset/images-2.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b56b23bc99a94a7630fd136ad7e84540faeb51b9
+GIT binary patch
+literal 1439
+zcmZ{kYdF&j9LJ|AJK9XF3^`h<(?Qq;LoPA5xy_}8)-#k_E~80{5IO&%kb|D(zAi55
+zP*e<=V^eZ!7~zpiBe~A)XmfXTp5C43y!d^--{<q<_wt)Ua<+xZs>p&sAeg-!!EGmn
+z-wy)b;ZI?Q?RFxR<mh3&y}i9t)6>&4Gc)b&?U$C8#>dAc5=m@qtVkrnVzHk;e`YWk
+z91e#-APfx+m6esT+3c#SDl(aj$Ky#PQh0bc5{WD>E}oj2f<Pec?d<>nXliOQnar-P
+zE`NW2b#-+rm8z|+4d)7OgFw=A_JmU&jC@i440&2l-bPDyzpnK@R{~;rb7V0;$u1b1
+z<+%1TEhKK;P_gEW;9VI19mW!ZN|yhQyPWpT$t4=59*#SBZsW8K?vd|O=UrgR%1WgK
+z4hv?Q?TEGiiq7zrX!pUWeqXE)cfKp;Uf^ozX4BNG5upW4>0@pETY`;3@X9{JIW;hD
+zBUF0m%1DAao_qhubd3yHU5{%U*xv}3QOg#-l&=-FT7oas<;g}?#N!Yaz$NUJx~8TR
+zeh(~wN*o=;3^jXj3HxS&n6i;x9T|}|j#fQ-hm{>j^kD}asJ+>YG&`QD9%;re<R2az
+zP_4{qdy8io=f$0O5nJ5xrE{Zqy||p$Y5<_4XhCu(37Q4;t3leex=19~;pmbv`3W&H
+zR3tc<iXPO=JoB7<I==5yiV@;`o$~F(?pn_Z*_^D>tBX>i;4hXG-qa{tFg&0F#avSW
+zKNSD2|0LFuUU{mZ@X;v(RJba-by+46gJ|LfKRx~1M6^>2e}&3_Hepwx`HlXU;6Qpq
+zDVt6}MGsYdvq@v`Vf2YTipt!1Zl1VxKNBm|yaSbQNTc(J40Nz~{9_MDOy)4v=R?SJ
+z9!AJ~xc$!QL@_lWx^;-V=Ihni?@z&h4GMU#pTemeGB!D1zi$7jQ{UDh8ZZDb(A?Gz
+zH=1@JKM{J{t8ITi!`8@PqdXC6UUPQ)$*~Vz@3TVyw6?^&)}$kYXOw$itj|S$_0Ll5
+zsGanjaY;7UgZr)2NW98Z2h^S(?SuNRm~4_wR&AH=$8_Kr4(McI@Y=7b(+595Y2IKY
+zIb(K|P_S-{XsntViHPi-;}u{|(qCvS2laA%MQKNLDdyg*v4|LOPlNB6X7l5+i7s&W
+zxm+Oc>x~3=*RwM&(q>A_VUz8L(zHnBv%>u5x4c5wkg|rkiy>;~%`EzPpp_&=OhJdH
+z2e8;BRBlXIkvsZO#?MF@QAmtF<%{3?FV^$k38SV)RwDF9SshI2eYiWe=c3z|)||_x
+zZqw$ZGK#$?tj<+uX*{sUbnFrWM#t@~_}fBNXFS77D-eHNN9WbCKebhxBaX#yd;9mp
+zyZ!sUY10S#BfPeHUl(BFd|1*5o$D~TBtfUO)BFN20ccVA87}A4dd@IOioGXf#Y9nc
+z<N<lLH#Hun70AgQtyXMMpk*R@A`b6v^rT<F568g-3(j|*{V`^6tySKRI}j6*Yc3@r
+zF0RO85`i>TCe@nFS4*5okqPRj2oex42OL3#l<qLo4_g^prIwIF$_;GPTsyIqf3M{T
+zbrUJ8HC)Dhyl`ua3Be-fnAPkF4~T_s8$r3gsb!e77vl;D<i$xbz%FGu<K!6Ot~U!|
+zov0qVlVrQP0zT*xWx-|LB%NqWM#`BcUtBcgMJ%9tWR>IrE}TWKyRJ9;rLZ&AQ)9QD
+zqc0?f0@j1Z&(9#9uQa?C#+ItVZQJ!lu!aVk8q|1hFHjC;F{s@GdO0Y>Ud$(z5^S<t
+zWpD_SFHdBbJQiLya0UkB0OC3|`%p0o)_oJeIjXA&^x}f-xXY{`qKL%p8=a=P9p9!&
+j{aB=bXX*c-f!dN%@CmW%E6Oa~nOTs%wKJj8(kJO3hJmOA
+
+literal 0
+HcmV?d00001
+
+diff --git a/Asimple_e-market_application/Assets.xcassets/demo.imageset/images.png b/Asimple_e-market_application/Assets.xcassets/demo.imageset/images.png
+new file mode 100644
+index 0000000000000000000000000000000000000000..b56b23bc99a94a7630fd136ad7e84540faeb51b9
+GIT binary patch
+literal 1439
+zcmZ{kYdF&j9LJ|AJK9XF3^`h<(?Qq;LoPA5xy_}8)-#k_E~80{5IO&%kb|D(zAi55
+zP*e<=V^eZ!7~zpiBe~A)XmfXTp5C43y!d^--{<q<_wt)Ua<+xZs>p&sAeg-!!EGmn
+z-wy)b;ZI?Q?RFxR<mh3&y}i9t)6>&4Gc)b&?U$C8#>dAc5=m@qtVkrnVzHk;e`YWk
+z91e#-APfx+m6esT+3c#SDl(aj$Ky#PQh0bc5{WD>E}oj2f<Pec?d<>nXliOQnar-P
+zE`NW2b#-+rm8z|+4d)7OgFw=A_JmU&jC@i440&2l-bPDyzpnK@R{~;rb7V0;$u1b1
+z<+%1TEhKK;P_gEW;9VI19mW!ZN|yhQyPWpT$t4=59*#SBZsW8K?vd|O=UrgR%1WgK
+z4hv?Q?TEGiiq7zrX!pUWeqXE)cfKp;Uf^ozX4BNG5upW4>0@pETY`;3@X9{JIW;hD
+zBUF0m%1DAao_qhubd3yHU5{%U*xv}3QOg#-l&=-FT7oas<;g}?#N!Yaz$NUJx~8TR
+zeh(~wN*o=;3^jXj3HxS&n6i;x9T|}|j#fQ-hm{>j^kD}asJ+>YG&`QD9%;re<R2az
+zP_4{qdy8io=f$0O5nJ5xrE{Zqy||p$Y5<_4XhCu(37Q4;t3leex=19~;pmbv`3W&H
+zR3tc<iXPO=JoB7<I==5yiV@;`o$~F(?pn_Z*_^D>tBX>i;4hXG-qa{tFg&0F#avSW
+zKNSD2|0LFuUU{mZ@X;v(RJba-by+46gJ|LfKRx~1M6^>2e}&3_Hepwx`HlXU;6Qpq
+zDVt6}MGsYdvq@v`Vf2YTipt!1Zl1VxKNBm|yaSbQNTc(J40Nz~{9_MDOy)4v=R?SJ
+z9!AJ~xc$!QL@_lWx^;-V=Ihni?@z&h4GMU#pTemeGB!D1zi$7jQ{UDh8ZZDb(A?Gz
+zH=1@JKM{J{t8ITi!`8@PqdXC6UUPQ)$*~Vz@3TVyw6?^&)}$kYXOw$itj|S$_0Ll5
+zsGanjaY;7UgZr)2NW98Z2h^S(?SuNRm~4_wR&AH=$8_Kr4(McI@Y=7b(+595Y2IKY
+zIb(K|P_S-{XsntViHPi-;}u{|(qCvS2laA%MQKNLDdyg*v4|LOPlNB6X7l5+i7s&W
+zxm+Oc>x~3=*RwM&(q>A_VUz8L(zHnBv%>u5x4c5wkg|rkiy>;~%`EzPpp_&=OhJdH
+z2e8;BRBlXIkvsZO#?MF@QAmtF<%{3?FV^$k38SV)RwDF9SshI2eYiWe=c3z|)||_x
+zZqw$ZGK#$?tj<+uX*{sUbnFrWM#t@~_}fBNXFS77D-eHNN9WbCKebhxBaX#yd;9mp
+zyZ!sUY10S#BfPeHUl(BFd|1*5o$D~TBtfUO)BFN20ccVA87}A4dd@IOioGXf#Y9nc
+z<N<lLH#Hun70AgQtyXMMpk*R@A`b6v^rT<F568g-3(j|*{V`^6tySKRI}j6*Yc3@r
+zF0RO85`i>TCe@nFS4*5okqPRj2oex42OL3#l<qLo4_g^prIwIF$_;GPTsyIqf3M{T
+zbrUJ8HC)Dhyl`ua3Be-fnAPkF4~T_s8$r3gsb!e77vl;D<i$xbz%FGu<K!6Ot~U!|
+zov0qVlVrQP0zT*xWx-|LB%NqWM#`BcUtBcgMJ%9tWR>IrE}TWKyRJ9;rLZ&AQ)9QD
+zqc0?f0@j1Z&(9#9uQa?C#+ItVZQJ!lu!aVk8q|1hFHjC;F{s@GdO0Y>Ud$(z5^S<t
+zWpD_SFHdBbJQiLya0UkB0OC3|`%p0o)_oJeIjXA&^x}f-xXY{`qKL%p8=a=P9p9!&
+j{aB=bXX*c-f!dN%@CmW%E6Oa~nOTs%wKJj8(kJO3hJmOA
+
+literal 0
+HcmV?d00001
+
+-- 
+2.30.1 (Apple Git-130)
+

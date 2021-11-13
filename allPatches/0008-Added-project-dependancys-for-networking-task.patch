@@ -1,0 +1,202 @@
+From d0e22098c0aa734884a2262e60e58d5e59a235de Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 14:46:04 +0600
+Subject: [PATCH 08/29] - Added project dependancys for networking task.
+
+---
+ .../project.pbxproj                           | 71 +++++++++++++++++++
+ .../contents.xcworkspacedata                  | 10 +++
+ Podfile                                       | 12 ++++
+ 3 files changed, 93 insertions(+)
+ create mode 100644 Asimple_e-market_application.xcworkspace/contents.xcworkspacedata
+ create mode 100644 Podfile
+
+diff --git a/Asimple_e-market_application.xcodeproj/project.pbxproj b/Asimple_e-market_application.xcodeproj/project.pbxproj
+index eaa2042..2fcc691 100644
+--- a/Asimple_e-market_application.xcodeproj/project.pbxproj
++++ b/Asimple_e-market_application.xcodeproj/project.pbxproj
+@@ -7,6 +7,7 @@
+ 	objects = {
+ 
+ /* Begin PBXBuildFile section */
++		09E73909FFF705B8E468BB75 /* Pods_Asimple_e_market_application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A916C78DAB924E2FE4AAAEE /* Pods_Asimple_e_market_application.framework */; };
+ 		841BB2FF273BA3B000C9450B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB2FE273BA3B000C9450B /* AppDelegate.swift */; };
+ 		841BB301273BA3B000C9450B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB300273BA3B000C9450B /* SceneDelegate.swift */; };
+ 		841BB303273BA3B000C9450B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB302273BA3B000C9450B /* ViewController.swift */; };
+@@ -17,6 +18,8 @@
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXFileReference section */
++		2E2B601C77AAD7457F844A51 /* Pods-Asimple_e-market_application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asimple_e-market_application.release.xcconfig"; path = "Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application.release.xcconfig"; sourceTree = "<group>"; };
++		5A916C78DAB924E2FE4AAAEE /* Pods_Asimple_e_market_application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Asimple_e_market_application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		841BB2FB273BA3B000C9450B /* Asimple_e-market_application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Asimple_e-market_application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		841BB2FE273BA3B000C9450B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+ 		841BB300273BA3B000C9450B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+@@ -26,6 +29,7 @@
+ 		841BB30A273BA3B800C9450B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+ 		841BB30C273BA3B800C9450B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+ 		841BB319273BBB1300C9450B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
++		EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asimple_e-market_application.debug.xcconfig"; path = "Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application.debug.xcconfig"; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFrameworksBuildPhase section */
+@@ -33,17 +37,30 @@
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				09E73909FFF705B8E468BB75 /* Pods_Asimple_e_market_application.framework in Frameworks */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+ /* End PBXFrameworksBuildPhase section */
+ 
+ /* Begin PBXGroup section */
++		41A94C037EBD52FEBD272B1F /* Pods */ = {
++			isa = PBXGroup;
++			children = (
++				EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */,
++				2E2B601C77AAD7457F844A51 /* Pods-Asimple_e-market_application.release.xcconfig */,
++			);
++			name = Pods;
++			path = Pods;
++			sourceTree = "<group>";
++		};
+ 		841BB2F2273BA3AF00C9450B = {
+ 			isa = PBXGroup;
+ 			children = (
+ 				841BB2FD273BA3B000C9450B /* Asimple_e-market_application */,
+ 				841BB2FC273BA3B000C9450B /* Products */,
++				41A94C037EBD52FEBD272B1F /* Pods */,
++				CDC6E3E3235F39DA3B3ECDA2 /* Frameworks */,
+ 			);
+ 			sourceTree = "<group>";
+ 		};
+@@ -126,6 +143,14 @@
+ 			path = TableViewCells;
+ 			sourceTree = "<group>";
+ 		};
++		CDC6E3E3235F39DA3B3ECDA2 /* Frameworks */ = {
++			isa = PBXGroup;
++			children = (
++				5A916C78DAB924E2FE4AAAEE /* Pods_Asimple_e_market_application.framework */,
++			);
++			name = Frameworks;
++			sourceTree = "<group>";
++		};
+ /* End PBXGroup section */
+ 
+ /* Begin PBXNativeTarget section */
+@@ -133,9 +158,11 @@
+ 			isa = PBXNativeTarget;
+ 			buildConfigurationList = 841BB30F273BA3B800C9450B /* Build configuration list for PBXNativeTarget "Asimple_e-market_application" */;
+ 			buildPhases = (
++				BD8F79B22EF231499C0E1773 /* [CP] Check Pods Manifest.lock */,
+ 				841BB2F7273BA3B000C9450B /* Sources */,
+ 				841BB2F8273BA3B000C9450B /* Frameworks */,
+ 				841BB2F9273BA3B000C9450B /* Resources */,
++				49EB6C987FCA7C44AF189C84 /* [CP] Embed Pods Frameworks */,
+ 			);
+ 			buildRules = (
+ 			);
+@@ -192,6 +219,48 @@
+ 		};
+ /* End PBXResourcesBuildPhase section */
+ 
++/* Begin PBXShellScriptBuildPhase section */
++		49EB6C987FCA7C44AF189C84 /* [CP] Embed Pods Frameworks */ = {
++			isa = PBXShellScriptBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			inputFileListPaths = (
++				"${PODS_ROOT}/Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application-frameworks-${CONFIGURATION}-input-files.xcfilelist",
++			);
++			name = "[CP] Embed Pods Frameworks";
++			outputFileListPaths = (
++				"${PODS_ROOT}/Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application-frameworks-${CONFIGURATION}-output-files.xcfilelist",
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++			shellPath = /bin/sh;
++			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application-frameworks.sh\"\n";
++			showEnvVarsInLog = 0;
++		};
++		BD8F79B22EF231499C0E1773 /* [CP] Check Pods Manifest.lock */ = {
++			isa = PBXShellScriptBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			inputFileListPaths = (
++			);
++			inputPaths = (
++				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
++				"${PODS_ROOT}/Manifest.lock",
++			);
++			name = "[CP] Check Pods Manifest.lock";
++			outputFileListPaths = (
++			);
++			outputPaths = (
++				"$(DERIVED_FILE_DIR)/Pods-Asimple_e-market_application-checkManifestLockResult.txt",
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++			shellPath = /bin/sh;
++			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
++			showEnvVarsInLog = 0;
++		};
++/* End PBXShellScriptBuildPhase section */
++
+ /* Begin PBXSourcesBuildPhase section */
+ 		841BB2F7273BA3B000C9450B /* Sources */ = {
+ 			isa = PBXSourcesBuildPhase;
+@@ -344,6 +413,7 @@
+ 		};
+ 		841BB310273BA3B800C9450B /* Debug */ = {
+ 			isa = XCBuildConfiguration;
++			baseConfigurationReference = EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */;
+ 			buildSettings = {
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+@@ -373,6 +443,7 @@
+ 		};
+ 		841BB311273BA3B800C9450B /* Release */ = {
+ 			isa = XCBuildConfiguration;
++			baseConfigurationReference = 2E2B601C77AAD7457F844A51 /* Pods-Asimple_e-market_application.release.xcconfig */;
+ 			buildSettings = {
+ 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+ 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+diff --git a/Asimple_e-market_application.xcworkspace/contents.xcworkspacedata b/Asimple_e-market_application.xcworkspace/contents.xcworkspacedata
+new file mode 100644
+index 0000000..ccd5d8f
+--- /dev/null
++++ b/Asimple_e-market_application.xcworkspace/contents.xcworkspacedata
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Workspace
++   version = "1.0">
++   <FileRef
++      location = "group:Asimple_e-market_application.xcodeproj">
++   </FileRef>
++   <FileRef
++      location = "group:Pods/Pods.xcodeproj">
++   </FileRef>
++</Workspace>
+diff --git a/Podfile b/Podfile
+new file mode 100644
+index 0000000..352c8ca
+--- /dev/null
++++ b/Podfile
+@@ -0,0 +1,12 @@
++# Uncomment the next line to define a global platform for your project
++# platform :ios, '9.0'
++
++target 'Asimple_e-market_application' do
++  # Comment the next line if you don't want to use dynamic frameworks
++  use_frameworks!
++
++  # Pods for Asimple_e-market_application
++  pod 'Alamofire'
++  pod 'SwiftyJSON'
++  pod 'SDWebImage'
++end
+-- 
+2.30.1 (Apple Git-130)
+

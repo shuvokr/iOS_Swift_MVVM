@@ -1,0 +1,129 @@
+From ecba535c0d967ae3797055085ea9ffaf7962c142 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 13:15:28 +0600
+Subject: [PATCH 01/29] - Config project architecture.
+
+---
+ .../project.pbxproj                           | 56 +++++++++++++++++--
+ .../{ => CommonFiles}/AppDelegate.swift       |  0
+ .../{ => CommonFiles}/SceneDelegate.swift     |  0
+ .../{ => Controllers}/ViewController.swift    |  3 +-
+ .../Base.lproj/LaunchScreen.storyboard        |  0
+ .../Base.lproj/Main.storyboard                |  0
+ 6 files changed, 53 insertions(+), 6 deletions(-)
+ rename Asimple_e-market_application/{ => CommonFiles}/AppDelegate.swift (100%)
+ rename Asimple_e-market_application/{ => CommonFiles}/SceneDelegate.swift (100%)
+ rename Asimple_e-market_application/{ => Controllers}/ViewController.swift (85%)
+ rename Asimple_e-market_application/{ => StoryBoards}/Base.lproj/LaunchScreen.storyboard (100%)
+ rename Asimple_e-market_application/{ => StoryBoards}/Base.lproj/Main.storyboard (100%)
+
+diff --git a/Asimple_e-market_application.xcodeproj/project.pbxproj b/Asimple_e-market_application.xcodeproj/project.pbxproj
+index 8d2abe1..7def96f 100644
+--- a/Asimple_e-market_application.xcodeproj/project.pbxproj
++++ b/Asimple_e-market_application.xcodeproj/project.pbxproj
+@@ -54,17 +54,65 @@
+ 			sourceTree = "<group>";
+ 		};
+ 		841BB2FD273BA3B000C9450B /* Asimple_e-market_application */ = {
++			isa = PBXGroup;
++			children = (
++				841BB314273BA7D900C9450B /* StoryBoards */,
++				841BB313273BA7BC00C9450B /* Controllers */,
++				841BB315273BA81800C9450B /* ModelView */,
++				841BB316273BA82500C9450B /* Model */,
++				841BB317273BA82E00C9450B /* WebServices */,
++				841BB312273BA78800C9450B /* CommonFiles */,
++				841BB307273BA3B800C9450B /* Assets.xcassets */,
++				841BB30C273BA3B800C9450B /* Info.plist */,
++			);
++			path = "Asimple_e-market_application";
++			sourceTree = "<group>";
++		};
++		841BB312273BA78800C9450B /* CommonFiles */ = {
+ 			isa = PBXGroup;
+ 			children = (
+ 				841BB2FE273BA3B000C9450B /* AppDelegate.swift */,
+ 				841BB300273BA3B000C9450B /* SceneDelegate.swift */,
++			);
++			path = CommonFiles;
++			sourceTree = "<group>";
++		};
++		841BB313273BA7BC00C9450B /* Controllers */ = {
++			isa = PBXGroup;
++			children = (
+ 				841BB302273BA3B000C9450B /* ViewController.swift */,
+-				841BB304273BA3B000C9450B /* Main.storyboard */,
+-				841BB307273BA3B800C9450B /* Assets.xcassets */,
++			);
++			path = Controllers;
++			sourceTree = "<group>";
++		};
++		841BB314273BA7D900C9450B /* StoryBoards */ = {
++			isa = PBXGroup;
++			children = (
+ 				841BB309273BA3B800C9450B /* LaunchScreen.storyboard */,
+-				841BB30C273BA3B800C9450B /* Info.plist */,
++				841BB304273BA3B000C9450B /* Main.storyboard */,
+ 			);
+-			path = "Asimple_e-market_application";
++			path = StoryBoards;
++			sourceTree = "<group>";
++		};
++		841BB315273BA81800C9450B /* ModelView */ = {
++			isa = PBXGroup;
++			children = (
++			);
++			path = ModelView;
++			sourceTree = "<group>";
++		};
++		841BB316273BA82500C9450B /* Model */ = {
++			isa = PBXGroup;
++			children = (
++			);
++			path = Model;
++			sourceTree = "<group>";
++		};
++		841BB317273BA82E00C9450B /* WebServices */ = {
++			isa = PBXGroup;
++			children = (
++			);
++			path = WebServices;
+ 			sourceTree = "<group>";
+ 		};
+ /* End PBXGroup section */
+diff --git a/Asimple_e-market_application/AppDelegate.swift b/Asimple_e-market_application/CommonFiles/AppDelegate.swift
+similarity index 100%
+rename from Asimple_e-market_application/AppDelegate.swift
+rename to Asimple_e-market_application/CommonFiles/AppDelegate.swift
+diff --git a/Asimple_e-market_application/SceneDelegate.swift b/Asimple_e-market_application/CommonFiles/SceneDelegate.swift
+similarity index 100%
+rename from Asimple_e-market_application/SceneDelegate.swift
+rename to Asimple_e-market_application/CommonFiles/SceneDelegate.swift
+diff --git a/Asimple_e-market_application/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+similarity index 85%
+rename from Asimple_e-market_application/ViewController.swift
+rename to Asimple_e-market_application/Controllers/ViewController.swift
+index 04eeaa7..342a5c2 100644
+--- a/Asimple_e-market_application/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -12,8 +12,7 @@ class ViewController: UIViewController {
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         // Do any additional setup after loading the view.
++        print("[ Asimple_e-market_application ]")
+     }
+-
+-
+ }
+ 
+diff --git a/Asimple_e-market_application/Base.lproj/LaunchScreen.storyboard b/Asimple_e-market_application/StoryBoards/Base.lproj/LaunchScreen.storyboard
+similarity index 100%
+rename from Asimple_e-market_application/Base.lproj/LaunchScreen.storyboard
+rename to Asimple_e-market_application/StoryBoards/Base.lproj/LaunchScreen.storyboard
+diff --git a/Asimple_e-market_application/Base.lproj/Main.storyboard b/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
+similarity index 100%
+rename from Asimple_e-market_application/Base.lproj/Main.storyboard
+rename to Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
+-- 
+2.30.1 (Apple Git-130)
+

@@ -1,0 +1,45 @@
+From 3adbc5c848c1db83addad89c09c5ac9ac1874a18 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 22:04:48 +0600
+Subject: [PATCH 17/29] - Added store info rander function.
+
+---
+ .../Controllers/ViewController.swift                  | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/Asimple_e-market_application/Controllers/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+index 6d507cc..0146973 100644
+--- a/Asimple_e-market_application/Controllers/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -16,6 +16,8 @@ class ViewController: UIViewController {
+     @IBOutlet weak var storeCloseTimeLabel: UILabel!
+     @IBOutlet weak var productsTable: UITableView!
+     
++    private var storeViewModel : StoreModelView!
++    
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         // Do any additional setup after loading the view.
+@@ -23,10 +25,19 @@ class ViewController: UIViewController {
+         self.productsTable.tableFooterView = UIView()
+         self.productsTable.delegate = self
+         self.productsTable.dataSource = self
++        
++        self.callToViewModelForUIUpdate()
+     }
+     @IBAction func placeOrderAction(_ sender: UIButton) {
+         self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
+     }
++    
++    private func callToViewModelForUIUpdate() {
++        self.storeViewModel = StoreModelView()
++        self.storeViewModel.bindStoreInfoViewModelToController = {
++            print(self.storeViewModel.storeData)
++        }
++    }
+ }
+ 
+ // MARK: - Alert Handler
+-- 
+2.30.1 (Apple Git-130)
+

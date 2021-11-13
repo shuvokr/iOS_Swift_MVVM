@@ -1,0 +1,497 @@
+From 3e35c03bc24d42c47917f789a824679aa7ca3e83 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Sat, 13 Nov 2021 19:46:19 +0600
+Subject: [PATCH 29/29] - Added ui test for load all product to a list. - Added
+ ui test for select multi products & place a order successfully.
+
+---
+ .../project.pbxproj                           | 238 ++++++++++++++++++
+ .../Controllers/ViewController.swift          |   5 +-
+ .../StoryBoards/Base.lproj/Main.storyboard    |  40 +--
+ .../Asimple_e_market_applicationUITests.swift |  38 +++
+ 4 files changed, 305 insertions(+), 16 deletions(-)
+ create mode 100644 Asimple_e-market_applicationUITests/Asimple_e_market_applicationUITests.swift
+
+diff --git a/Asimple_e-market_application.xcodeproj/project.pbxproj b/Asimple_e-market_application.xcodeproj/project.pbxproj
+index 27aabf4..4850c1c 100644
+--- a/Asimple_e-market_application.xcodeproj/project.pbxproj
++++ b/Asimple_e-market_application.xcodeproj/project.pbxproj
+@@ -19,10 +19,25 @@
+ 		841BB31E273BC3C400C9450B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31D273BC3C400C9450B /* Model.swift */; };
+ 		841BB320273BCBD700C9450B /* StoreModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB31F273BCBD700C9450B /* StoreModelView.swift */; };
+ 		841BB322273BCBEA00C9450B /* ProductModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BB321273BCBEA00C9450B /* ProductModelView.swift */; };
++		8438E919273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8438E918273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift */; };
+ 		84FCE59D273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE59C273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift */; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXContainerItemProxy section */
++		8438E91C273D456F00EA5717 /* PBXContainerItemProxy */ = {
++			isa = PBXContainerItemProxy;
++			containerPortal = 841BB2F3273BA3AF00C9450B /* Project object */;
++			proxyType = 1;
++			remoteGlobalIDString = 841BB2FA273BA3B000C9450B;
++			remoteInfo = "Asimple_e-market_application";
++		};
++		849DCA5F273FF74B00652629 /* PBXContainerItemProxy */ = {
++			isa = PBXContainerItemProxy;
++			containerPortal = 841BB2F3273BA3AF00C9450B /* Project object */;
++			proxyType = 1;
++			remoteGlobalIDString = 841BB2FA273BA3B000C9450B;
++			remoteInfo = "Asimple_e-market_application";
++		};
+ 		84FCE59E273CFE6800F66ED1 /* PBXContainerItemProxy */ = {
+ 			isa = PBXContainerItemProxy;
+ 			containerPortal = 841BB2F3273BA3AF00C9450B /* Project object */;
+@@ -48,6 +63,9 @@
+ 		841BB31D273BC3C400C9450B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+ 		841BB31F273BCBD700C9450B /* StoreModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreModelView.swift; sourceTree = "<group>"; };
+ 		841BB321273BCBEA00C9450B /* ProductModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelView.swift; sourceTree = "<group>"; };
++		8438E916273D456F00EA5717 /* Asimple_e-market_applicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asimple_e-market_applicationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
++		8438E918273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asimple_e_market_applicationUITests.swift; sourceTree = "<group>"; };
++		849DCA59273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asimple_e-market_applicationPOPUPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		84FCE59A273CFE6800F66ED1 /* Asimple_e-market_applicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Asimple_e-market_applicationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		84FCE59C273CFE6800F66ED1 /* Asimple_e_market_applicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asimple_e_market_applicationTests.swift; sourceTree = "<group>"; };
+ 		EBBD4E0788F713E71EDD2D25 /* Pods-Asimple_e-market_application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Asimple_e-market_application.debug.xcconfig"; path = "Target Support Files/Pods-Asimple_e-market_application/Pods-Asimple_e-market_application.debug.xcconfig"; sourceTree = "<group>"; };
+@@ -62,6 +80,20 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++		8438E913273D456F00EA5717 /* Frameworks */ = {
++			isa = PBXFrameworksBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++		};
++		849DCA56273FF74B00652629 /* Frameworks */ = {
++			isa = PBXFrameworksBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++		};
+ 		84FCE597273CFE6800F66ED1 /* Frameworks */ = {
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+@@ -86,6 +118,7 @@
+ 			children = (
+ 				841BB2FD273BA3B000C9450B /* Asimple_e-market_application */,
+ 				84FCE59B273CFE6800F66ED1 /* Asimple_e-market_applicationTests */,
++				8438E917273D456F00EA5717 /* Asimple_e-market_applicationUITests */,
+ 				841BB2FC273BA3B000C9450B /* Products */,
+ 				41A94C037EBD52FEBD272B1F /* Pods */,
+ 				CDC6E3E3235F39DA3B3ECDA2 /* Frameworks */,
+@@ -97,6 +130,8 @@
+ 			children = (
+ 				841BB2FB273BA3B000C9450B /* Asimple_e-market_application.app */,
+ 				84FCE59A273CFE6800F66ED1 /* Asimple_e-market_applicationTests.xctest */,
++				8438E916273D456F00EA5717 /* Asimple_e-market_applicationUITests.xctest */,
++				849DCA59273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests.xctest */,
+ 			);
+ 			name = Products;
+ 			sourceTree = "<group>";
+@@ -176,6 +211,14 @@
+ 			path = TableViewCells;
+ 			sourceTree = "<group>";
+ 		};
++		8438E917273D456F00EA5717 /* Asimple_e-market_applicationUITests */ = {
++			isa = PBXGroup;
++			children = (
++				8438E918273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift */,
++			);
++			path = "Asimple_e-market_applicationUITests";
++			sourceTree = "<group>";
++		};
+ 		84FCE59B273CFE6800F66ED1 /* Asimple_e-market_applicationTests */ = {
+ 			isa = PBXGroup;
+ 			children = (
+@@ -214,6 +257,42 @@
+ 			productReference = 841BB2FB273BA3B000C9450B /* Asimple_e-market_application.app */;
+ 			productType = "com.apple.product-type.application";
+ 		};
++		8438E915273D456F00EA5717 /* Asimple_e-market_applicationUITests */ = {
++			isa = PBXNativeTarget;
++			buildConfigurationList = 8438E920273D456F00EA5717 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationUITests" */;
++			buildPhases = (
++				8438E912273D456F00EA5717 /* Sources */,
++				8438E913273D456F00EA5717 /* Frameworks */,
++				8438E914273D456F00EA5717 /* Resources */,
++			);
++			buildRules = (
++			);
++			dependencies = (
++				8438E91D273D456F00EA5717 /* PBXTargetDependency */,
++			);
++			name = "Asimple_e-market_applicationUITests";
++			productName = "Asimple_e-market_applicationUITests";
++			productReference = 8438E916273D456F00EA5717 /* Asimple_e-market_applicationUITests.xctest */;
++			productType = "com.apple.product-type.bundle.ui-testing";
++		};
++		849DCA58273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests */ = {
++			isa = PBXNativeTarget;
++			buildConfigurationList = 849DCA61273FF74B00652629 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationPOPUPUITests" */;
++			buildPhases = (
++				849DCA55273FF74B00652629 /* Sources */,
++				849DCA56273FF74B00652629 /* Frameworks */,
++				849DCA57273FF74B00652629 /* Resources */,
++			);
++			buildRules = (
++			);
++			dependencies = (
++				849DCA60273FF74B00652629 /* PBXTargetDependency */,
++			);
++			name = "Asimple_e-market_applicationPOPUPUITests";
++			productName = "Asimple_e-market_applicationPOPUPUITests";
++			productReference = 849DCA59273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests.xctest */;
++			productType = "com.apple.product-type.bundle.ui-testing";
++		};
+ 		84FCE599273CFE6800F66ED1 /* Asimple_e-market_applicationTests */ = {
+ 			isa = PBXNativeTarget;
+ 			buildConfigurationList = 84FCE5A0273CFE6800F66ED1 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationTests" */;
+@@ -245,6 +324,14 @@
+ 					841BB2FA273BA3B000C9450B = {
+ 						CreatedOnToolsVersion = 13.1;
+ 					};
++					8438E915273D456F00EA5717 = {
++						CreatedOnToolsVersion = 13.1;
++						TestTargetID = 841BB2FA273BA3B000C9450B;
++					};
++					849DCA58273FF74B00652629 = {
++						CreatedOnToolsVersion = 13.1;
++						TestTargetID = 841BB2FA273BA3B000C9450B;
++					};
+ 					84FCE599273CFE6800F66ED1 = {
+ 						CreatedOnToolsVersion = 13.1;
+ 						TestTargetID = 841BB2FA273BA3B000C9450B;
+@@ -266,6 +353,8 @@
+ 			targets = (
+ 				841BB2FA273BA3B000C9450B /* Asimple_e-market_application */,
+ 				84FCE599273CFE6800F66ED1 /* Asimple_e-market_applicationTests */,
++				8438E915273D456F00EA5717 /* Asimple_e-market_applicationUITests */,
++				849DCA58273FF74B00652629 /* Asimple_e-market_applicationPOPUPUITests */,
+ 			);
+ 		};
+ /* End PBXProject section */
+@@ -281,6 +370,20 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++		8438E914273D456F00EA5717 /* Resources */ = {
++			isa = PBXResourcesBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++		};
++		849DCA57273FF74B00652629 /* Resources */ = {
++			isa = PBXResourcesBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++		};
+ 		84FCE598273CFE6800F66ED1 /* Resources */ = {
+ 			isa = PBXResourcesBuildPhase;
+ 			buildActionMask = 2147483647;
+@@ -348,6 +451,21 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++		8438E912273D456F00EA5717 /* Sources */ = {
++			isa = PBXSourcesBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++				8438E919273D456F00EA5717 /* Asimple_e_market_applicationUITests.swift in Sources */,
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++		};
++		849DCA55273FF74B00652629 /* Sources */ = {
++			isa = PBXSourcesBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++		};
+ 		84FCE596273CFE6800F66ED1 /* Sources */ = {
+ 			isa = PBXSourcesBuildPhase;
+ 			buildActionMask = 2147483647;
+@@ -359,6 +477,16 @@
+ /* End PBXSourcesBuildPhase section */
+ 
+ /* Begin PBXTargetDependency section */
++		8438E91D273D456F00EA5717 /* PBXTargetDependency */ = {
++			isa = PBXTargetDependency;
++			target = 841BB2FA273BA3B000C9450B /* Asimple_e-market_application */;
++			targetProxy = 8438E91C273D456F00EA5717 /* PBXContainerItemProxy */;
++		};
++		849DCA60273FF74B00652629 /* PBXTargetDependency */ = {
++			isa = PBXTargetDependency;
++			target = 841BB2FA273BA3B000C9450B /* Asimple_e-market_application */;
++			targetProxy = 849DCA5F273FF74B00652629 /* PBXContainerItemProxy */;
++		};
+ 		84FCE59F273CFE6800F66ED1 /* PBXTargetDependency */ = {
+ 			isa = PBXTargetDependency;
+ 			target = 841BB2FA273BA3B000C9450B /* Asimple_e-market_application */;
+@@ -562,6 +690,98 @@
+ 			};
+ 			name = Release;
+ 		};
++		8438E91E273D456F00EA5717 /* Debug */ = {
++			isa = XCBuildConfiguration;
++			buildSettings = {
++				CODE_SIGN_STYLE = Automatic;
++				CURRENT_PROJECT_VERSION = 1;
++				DEVELOPMENT_TEAM = Q3FDR68B4T;
++				GENERATE_INFOPLIST_FILE = YES;
++				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				LD_RUNPATH_SEARCH_PATHS = (
++					"$(inherited)",
++					"@executable_path/Frameworks",
++					"@loader_path/Frameworks",
++				);
++				MARKETING_VERSION = 1.0;
++				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationUITests";
++				PRODUCT_NAME = "$(TARGET_NAME)";
++				SWIFT_EMIT_LOC_STRINGS = NO;
++				SWIFT_VERSION = 5.0;
++				TARGETED_DEVICE_FAMILY = "1,2";
++				TEST_TARGET_NAME = "Asimple_e-market_application";
++			};
++			name = Debug;
++		};
++		8438E91F273D456F00EA5717 /* Release */ = {
++			isa = XCBuildConfiguration;
++			buildSettings = {
++				CODE_SIGN_STYLE = Automatic;
++				CURRENT_PROJECT_VERSION = 1;
++				DEVELOPMENT_TEAM = Q3FDR68B4T;
++				GENERATE_INFOPLIST_FILE = YES;
++				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				LD_RUNPATH_SEARCH_PATHS = (
++					"$(inherited)",
++					"@executable_path/Frameworks",
++					"@loader_path/Frameworks",
++				);
++				MARKETING_VERSION = 1.0;
++				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationUITests";
++				PRODUCT_NAME = "$(TARGET_NAME)";
++				SWIFT_EMIT_LOC_STRINGS = NO;
++				SWIFT_VERSION = 5.0;
++				TARGETED_DEVICE_FAMILY = "1,2";
++				TEST_TARGET_NAME = "Asimple_e-market_application";
++			};
++			name = Release;
++		};
++		849DCA62273FF74B00652629 /* Debug */ = {
++			isa = XCBuildConfiguration;
++			buildSettings = {
++				CODE_SIGN_STYLE = Automatic;
++				CURRENT_PROJECT_VERSION = 1;
++				DEVELOPMENT_TEAM = Q3FDR68B4T;
++				GENERATE_INFOPLIST_FILE = YES;
++				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				LD_RUNPATH_SEARCH_PATHS = (
++					"$(inherited)",
++					"@executable_path/Frameworks",
++					"@loader_path/Frameworks",
++				);
++				MARKETING_VERSION = 1.0;
++				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationPOPUPUITests";
++				PRODUCT_NAME = "$(TARGET_NAME)";
++				SWIFT_EMIT_LOC_STRINGS = NO;
++				SWIFT_VERSION = 5.0;
++				TARGETED_DEVICE_FAMILY = "1,2";
++				TEST_TARGET_NAME = "Asimple_e-market_application";
++			};
++			name = Debug;
++		};
++		849DCA63273FF74B00652629 /* Release */ = {
++			isa = XCBuildConfiguration;
++			buildSettings = {
++				CODE_SIGN_STYLE = Automatic;
++				CURRENT_PROJECT_VERSION = 1;
++				DEVELOPMENT_TEAM = Q3FDR68B4T;
++				GENERATE_INFOPLIST_FILE = YES;
++				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++				LD_RUNPATH_SEARCH_PATHS = (
++					"$(inherited)",
++					"@executable_path/Frameworks",
++					"@loader_path/Frameworks",
++				);
++				MARKETING_VERSION = 1.0;
++				PRODUCT_BUNDLE_IDENTIFIER = "com.ecom.code.Asimple-e-market-applicationPOPUPUITests";
++				PRODUCT_NAME = "$(TARGET_NAME)";
++				SWIFT_EMIT_LOC_STRINGS = NO;
++				SWIFT_VERSION = 5.0;
++				TARGETED_DEVICE_FAMILY = "1,2";
++				TEST_TARGET_NAME = "Asimple_e-market_application";
++			};
++			name = Release;
++		};
+ 		84FCE5A1273CFE6800F66ED1 /* Debug */ = {
+ 			isa = XCBuildConfiguration;
+ 			buildSettings = {
+@@ -631,6 +851,24 @@
+ 			defaultConfigurationIsVisible = 0;
+ 			defaultConfigurationName = Release;
+ 		};
++		8438E920273D456F00EA5717 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationUITests" */ = {
++			isa = XCConfigurationList;
++			buildConfigurations = (
++				8438E91E273D456F00EA5717 /* Debug */,
++				8438E91F273D456F00EA5717 /* Release */,
++			);
++			defaultConfigurationIsVisible = 0;
++			defaultConfigurationName = Release;
++		};
++		849DCA61273FF74B00652629 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationPOPUPUITests" */ = {
++			isa = XCConfigurationList;
++			buildConfigurations = (
++				849DCA62273FF74B00652629 /* Debug */,
++				849DCA63273FF74B00652629 /* Release */,
++			);
++			defaultConfigurationIsVisible = 0;
++			defaultConfigurationName = Release;
++		};
+ 		84FCE5A0273CFE6800F66ED1 /* Build configuration list for PBXNativeTarget "Asimple_e-market_applicationTests" */ = {
+ 			isa = XCConfigurationList;
+ 			buildConfigurations = (
+diff --git a/Asimple_e-market_application/Controllers/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+index 5229198..660fafc 100644
+--- a/Asimple_e-market_application/Controllers/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -89,7 +89,9 @@ class ViewController: UIViewController {
+     private func callToPlaceOrder(products : [Products]) {
+         let apiService : APIService = APIService()
+         apiService.apiToPlaceOrder(productsData: products) { (statusCode) in
+-            self.showWarnings(title: "Placed order successfully", alertMessage: "Your order was placed successfully.")
++            if statusCode == 201 {
++                self.showWarnings(title: "Placed order successfully", alertMessage: "Your order was placed successfully.")
++            }
+         }
+     }
+ }
+@@ -124,6 +126,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
++        cell.accessibilityIdentifier = "Cell_\(indexPath.row)"
+         cell.selectionStyle = .none
+         cell.productImageLink.sd_setImage(with: URL(string: self.productViewModel.storeData[indexPath.row].imageUrl), placeholderImage: UIImage(named: "demo"))
+         cell.productNameLabel.text = "Product Name: \(self.productViewModel.storeData[indexPath.row].name)"
+diff --git a/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard b/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
+index 02da180..08900a4 100644
+--- a/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
++++ b/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
+@@ -70,19 +70,8 @@
+                                     <constraint firstItem="wUY-v7-ncO" firstAttribute="top" secondItem="NQ4-QL-83q" secondAttribute="bottom" constant="2" id="yNH-Yx-Vn9"/>
+                                 </constraints>
+                             </view>
+-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejt-v8-kMw">
+-                                <rect key="frame" x="137" y="831" width="140" height="31"/>
+-                                <constraints>
+-                                    <constraint firstAttribute="width" constant="140" id="5eP-dd-Tts"/>
+-                                </constraints>
+-                                <state key="normal" title="Button"/>
+-                                <buttonConfiguration key="configuration" style="filled" title="Place Order"/>
+-                                <connections>
+-                                    <action selector="placeOrderAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4eM-b7-nPV"/>
+-                                </connections>
+-                            </button>
+                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kE2-OP-vE6">
+-                                <rect key="frame" x="20" y="154" width="374" height="669"/>
++                                <rect key="frame" x="20" y="154" width="374" height="660"/>
+                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                 <prototypes>
+                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewcell" rowHeight="115" id="Cm0-Bv-CPa" customClass="TableViewCell" customModule="Asimple_e_market_application" customModuleProvider="target">
+@@ -134,19 +123,40 @@
+                                     </tableViewCell>
+                                 </prototypes>
+                             </tableView>
++                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hi8-bL-pps">
++                                <rect key="frame" x="20" y="822" width="374" height="40"/>
++                                <color key="backgroundColor" red="0.42352941179999998" green="0.23529411759999999" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
++                                <constraints>
++                                    <constraint firstAttribute="height" constant="40" id="Lff-ZH-Xrn"/>
++                                </constraints>
++                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
++                                <state key="normal" title="Button"/>
++                                <buttonConfiguration key="configuration" style="plain" title="Place Order">
++                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="16"/>
++                                </buttonConfiguration>
++                                <userDefinedRuntimeAttributes>
++                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadious">
++                                        <integer key="value" value="5"/>
++                                    </userDefinedRuntimeAttribute>
++                                </userDefinedRuntimeAttributes>
++                                <connections>
++                                    <action selector="placeOrderAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z3O-pc-5wI"/>
++                                </connections>
++                            </button>
+                         </subviews>
+                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                         <constraints>
+-                            <constraint firstItem="ejt-v8-kMw" firstAttribute="top" secondItem="kE2-OP-vE6" secondAttribute="bottom" constant="8" symbolic="YES" id="0G5-Y3-Ek3"/>
+-                            <constraint firstItem="ejt-v8-kMw" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3iu-UZ-pjZ"/>
+                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ym8-ud-0uC" secondAttribute="trailing" constant="20" id="4jP-Cx-enU"/>
+                             <constraint firstItem="ym8-ud-0uC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5KR-Jv-jE4"/>
+                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kE2-OP-vE6" secondAttribute="trailing" constant="20" id="89A-m2-Zpk"/>
+                             <constraint firstItem="kE2-OP-vE6" firstAttribute="top" secondItem="ym8-ud-0uC" secondAttribute="bottom" constant="8" symbolic="YES" id="CwD-bx-NGD"/>
+-                            <constraint firstItem="ejt-v8-kMw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MGb-jb-461"/>
++                            <constraint firstItem="Hi8-bL-pps" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ItB-Rt-PVy"/>
++                            <constraint firstItem="Hi8-bL-pps" firstAttribute="top" secondItem="kE2-OP-vE6" secondAttribute="bottom" constant="8" symbolic="YES" id="Mg9-Bt-xiW"/>
+                             <constraint firstItem="kE2-OP-vE6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="W3r-zE-mdh"/>
++                            <constraint firstItem="Hi8-bL-pps" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ghA-6H-Rdo"/>
+                             <constraint firstItem="ym8-ud-0uC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mv1-Vh-qdA"/>
++                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hi8-bL-pps" secondAttribute="trailing" constant="20" id="noo-aU-eyC"/>
+                         </constraints>
+                     </view>
+                     <connections>
+diff --git a/Asimple_e-market_applicationUITests/Asimple_e_market_applicationUITests.swift b/Asimple_e-market_applicationUITests/Asimple_e_market_applicationUITests.swift
+new file mode 100644
+index 0000000..3b3d169
+--- /dev/null
++++ b/Asimple_e-market_applicationUITests/Asimple_e_market_applicationUITests.swift
+@@ -0,0 +1,38 @@
++//
++//  Asimple_e_market_applicationUITests.swift
++//  Asimple_e-market_applicationUITests
++//
++//  Created by Shuvo on 11/11/21.
++//
++
++import XCTest
++
++class Asimple_e_market_applicationUITests: XCTestCase {
++    var app: XCUIApplication!
++
++    override func setUpWithError() throws {
++        try super.setUpWithError()
++        continueAfterFailure = false
++        app = XCUIApplication()
++        app.launch()
++        print(app.debugDescription)
++    }
++
++    func test_ButtonShowAlerts() {
++        app.buttons["Place Order"].tap()
++        XCTAssertTrue(app.alerts["Warning!"].exists)
++        app.alerts["Warning!"].buttons["Okay"].tap()
++    }
++    
++    func test_PlaceOrderUITest() {
++        sleep(5)
++        let cell = app.cells.element(matching: .cell, identifier: "Cell_1")
++        let cell2 = app.cells.element(matching: .cell, identifier: "Cell_3")
++        cell.tap()
++        cell2.tap()
++        app.buttons["Place Order"].tap()
++        sleep(5)
++        XCTAssertTrue(app.alerts["Placed order successfully"].exists)
++        app.alerts["Placed order successfully"].buttons["Okay"].tap()
++    }
++    }
+-- 
+2.30.1 (Apple Git-130)
+

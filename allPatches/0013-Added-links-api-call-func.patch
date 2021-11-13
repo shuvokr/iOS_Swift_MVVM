@@ -1,0 +1,43 @@
+From c7fc5dfaa65ea6c2bed20f6b9f779f593e1a8da4 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 15:15:29 +0600
+Subject: [PATCH 13/29] - Added links & api call func.
+
+---
+ .../WebServices/APIService.swift              | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/Asimple_e-market_application/WebServices/APIService.swift b/Asimple_e-market_application/WebServices/APIService.swift
+index 427db40..3da7db2 100644
+--- a/Asimple_e-market_application/WebServices/APIService.swift
++++ b/Asimple_e-market_application/WebServices/APIService.swift
+@@ -8,5 +8,26 @@
+ import UIKit
+ 
+ class APIService: NSObject {
++    private let storeInfoURL = URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/storeInfo")!
++    private let productListURL = URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/products")!
++    private let placeOrderURL = URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/order")!
++}
+ 
++// MARK: - Load Store Info
++extension APIService {
++    func apiToGetStoreInfo(completion : @escaping (StoreInfo) -> ()) {
++        
++    }
++}
++// MARK: - Load Products
++extension APIService {
++    func apiToGetProductsInfo(completion : @escaping ([Products]) -> ()) {
++        
++    }
++}
++// MARK: - Place order
++extension APIService {
++    func apiToPlaceOrder(completion : @escaping (Int) -> ()) {
++        
++    }
+ }
+-- 
+2.30.1 (Apple Git-130)
+

@@ -1,0 +1,33 @@
+From 0e5a37e5a9fcdc787688a4084a2ea2e023836f91 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 15:14:52 +0600
+Subject: [PATCH 12/29] - Added store & product model.
+
+---
+ Asimple_e-market_application/Model/Model.swift | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/Asimple_e-market_application/Model/Model.swift b/Asimple_e-market_application/Model/Model.swift
+index bf3673a..55f2977 100644
+--- a/Asimple_e-market_application/Model/Model.swift
++++ b/Asimple_e-market_application/Model/Model.swift
+@@ -6,3 +6,16 @@
+ //
+ 
+ import Foundation
++
++struct StoreInfo {
++    var name : String = String()
++    var rating : String = String()
++    var openingTime : String = String()
++    var closingTime : String = String()
++}
++
++struct Products {
++    var name : String = String()
++    var price : String = String()
++    var imageUrl : String = String()
++}
+-- 
+2.30.1 (Apple Git-130)
+

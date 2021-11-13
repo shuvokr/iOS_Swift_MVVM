@@ -1,0 +1,43 @@
+From 49c40ce73326cad3633e10fa7f72922c3c353747 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 22:03:04 +0600
+Subject: [PATCH 16/29] - Added store info view model action.
+
+---
+ .../ModelView/StoreModelView.swift            | 22 ++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/Asimple_e-market_application/ModelView/StoreModelView.swift b/Asimple_e-market_application/ModelView/StoreModelView.swift
+index 2d160b6..b434335 100644
+--- a/Asimple_e-market_application/ModelView/StoreModelView.swift
++++ b/Asimple_e-market_application/ModelView/StoreModelView.swift
+@@ -8,5 +8,25 @@
+ import UIKit
+ 
+ class StoreModelView: NSObject {
+-
++    private var apiService : APIService!
++    private(set) var storeData : StoreInfo! {
++        didSet {
++            self.bindStoreInfoViewModelToController()
++        }
++    }
++    
++    var bindStoreInfoViewModelToController : (() -> ()) = {}
++    
++    override init() {
++        super.init()
++        print("5")
++        self.apiService =  APIService()
++        callFuncToGetStoreData()
++    }
++    
++    func callFuncToGetStoreData() {
++        self.apiService.apiToGetStoreInfo { (storeData) in
++            print(storeData)
++        }
++    }
+ }
+-- 
+2.30.1 (Apple Git-130)
+

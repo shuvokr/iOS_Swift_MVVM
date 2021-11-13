@@ -1,0 +1,44 @@
+From cbf53d35f24b2d0d550f961c7a85585851c845ee Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 22:20:58 +0600
+Subject: [PATCH 19/29] - Bind data with store info view.
+
+---
+ .../Controllers/ViewController.swift                       | 7 ++++++-
+ .../ModelView/StoreModelView.swift                         | 2 +-
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/Asimple_e-market_application/Controllers/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+index c5bef0c..738aaf2 100644
+--- a/Asimple_e-market_application/Controllers/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -35,7 +35,12 @@ class ViewController: UIViewController {
+     private func callToViewModelForUIUpdate() {
+         self.storeViewModel = StoreModelView()
+         self.storeViewModel.bindStoreInfoViewModelToController = {
+-            print(self.storeViewModel.storeData ?? "nil")
++            DispatchQueue.main.async {
++                self.storeNameLabel.text = self.storeViewModel.storeData.name
++                self.storeRatingLabel.text = self.storeViewModel.storeData.rating
++                self.storeOpenTimeLabel.text = self.storeViewModel.storeData.openingTime
++                self.storeCloseTimeLabel.text = self.storeViewModel.storeData.closingTime
++            }
+         }
+     }
+ }
+diff --git a/Asimple_e-market_application/ModelView/StoreModelView.swift b/Asimple_e-market_application/ModelView/StoreModelView.swift
+index a3cb05d..9d35ea0 100644
+--- a/Asimple_e-market_application/ModelView/StoreModelView.swift
++++ b/Asimple_e-market_application/ModelView/StoreModelView.swift
+@@ -25,7 +25,7 @@ class StoreModelView: NSObject {
+     
+     func callFuncToGetStoreData() {
+         self.apiService.apiToGetStoreInfo { (storeData) in
+-            print(storeData)
++            self.storeData = storeData
+         }
+     }
+ }
+-- 
+2.30.1 (Apple Git-130)
+

@@ -1,0 +1,83 @@
+From 8ad473903a74ce7351fc524194001fff54faa280 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 15:00:49 +0600
+Subject: [PATCH 10/29] - Added table view data sorce & delegate action for
+ load products data.
+
+---
+ .../xcshareddata/IDEWorkspaceChecks.plist             |  8 ++++++++
+ .../Controllers/ViewController.swift                  | 11 ++++++++++-
+ .../StoryBoards/Base.lproj/Main.storyboard            |  1 +
+ 3 files changed, 19 insertions(+), 1 deletion(-)
+ create mode 100644 Asimple_e-market_application.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+diff --git a/Asimple_e-market_application.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist b/Asimple_e-market_application.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+new file mode 100644
+index 0000000..18d9810
+--- /dev/null
++++ b/Asimple_e-market_application.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
++<plist version="1.0">
++<dict>
++	<key>IDEDidComputeMac32BitWarning</key>
++	<true/>
++</dict>
++</plist>
+diff --git a/Asimple_e-market_application/Controllers/ViewController.swift b/Asimple_e-market_application/Controllers/ViewController.swift
+index 292da31..6d507cc 100644
+--- a/Asimple_e-market_application/Controllers/ViewController.swift
++++ b/Asimple_e-market_application/Controllers/ViewController.swift
+@@ -6,6 +6,7 @@
+ //
+ 
+ import UIKit
++import SDWebImage
+ 
+ class ViewController: UIViewController {
+ 
+@@ -13,11 +14,15 @@ class ViewController: UIViewController {
+     @IBOutlet weak var storeRatingLabel: UILabel!
+     @IBOutlet weak var storeOpenTimeLabel: UILabel!
+     @IBOutlet weak var storeCloseTimeLabel: UILabel!
++    @IBOutlet weak var productsTable: UITableView!
+     
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         // Do any additional setup after loading the view.
+         print("[ Asimple_e-market_application ]")
++        self.productsTable.tableFooterView = UIView()
++        self.productsTable.delegate = self
++        self.productsTable.dataSource = self
+     }
+     @IBAction func placeOrderAction(_ sender: UIButton) {
+         self.showWarnings(title: "Warning!", alertMessage: "No products have been selected for ordering.")
+@@ -53,7 +58,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+-        let cell = tableView.dequeueReusableCell(withIdentifier: "tablecell", for: indexPath) as TableViewCell
++        let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewcell", for: indexPath) as! TableViewCell
++        cell.productImageLink.sd_setImage(with: URL(string: "https://www.nespresso.com/ncp/res/uploads/recipes/nespresso-recipes-Latte-Art-Tulip.jpg"), placeholderImage: UIImage(named: "demo"))
++        cell.productNameLabel.text = "Product Name: nil"
++        cell.productPriceLabel.text = "Product price: 123 TK"
++        return cell
+     }
+     
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+diff --git a/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard b/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
+index 4084066..02da180 100644
+--- a/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
++++ b/Asimple_e-market_application/StoryBoards/Base.lproj/Main.storyboard
+@@ -150,6 +150,7 @@
+                         </constraints>
+                     </view>
+                     <connections>
++                        <outlet property="productsTable" destination="kE2-OP-vE6" id="wQS-7H-gcE"/>
+                         <outlet property="storeCloseTimeLabel" destination="uAb-98-F8o" id="faX-ck-fkz"/>
+                         <outlet property="storeNameLabel" destination="NQ4-QL-83q" id="lfV-nv-aqR"/>
+                         <outlet property="storeOpenTimeLabel" destination="Txv-1G-5Oy" id="pUu-uM-AoX"/>
+-- 
+2.30.1 (Apple Git-130)
+

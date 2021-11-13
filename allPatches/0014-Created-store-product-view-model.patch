@@ -1,0 +1,51 @@
+From 032ce17b296d2ade0754b799afe8abe988f59857 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 21:50:06 +0600
+Subject: [PATCH 14/29] - Created store & product view model.
+
+---
+ .../ModelView/ProductModelView.swift                 | 12 ++++++++++++
+ .../ModelView/StoreModelView.swift                   | 12 ++++++++++++
+ 2 files changed, 24 insertions(+)
+ create mode 100644 Asimple_e-market_application/ModelView/ProductModelView.swift
+ create mode 100644 Asimple_e-market_application/ModelView/StoreModelView.swift
+
+diff --git a/Asimple_e-market_application/ModelView/ProductModelView.swift b/Asimple_e-market_application/ModelView/ProductModelView.swift
+new file mode 100644
+index 0000000..3c263e2
+--- /dev/null
++++ b/Asimple_e-market_application/ModelView/ProductModelView.swift
+@@ -0,0 +1,12 @@
++//
++//  ProductModelView.swift
++//  Asimple_e-market_application
++//
++//  Created by Shuvo on 11/10/21.
++//
++
++import UIKit
++
++class ProductModelView: NSObject {
++
++}
+diff --git a/Asimple_e-market_application/ModelView/StoreModelView.swift b/Asimple_e-market_application/ModelView/StoreModelView.swift
+new file mode 100644
+index 0000000..2d160b6
+--- /dev/null
++++ b/Asimple_e-market_application/ModelView/StoreModelView.swift
+@@ -0,0 +1,12 @@
++//
++//  StoreModelView.swift
++//  Asimple_e-market_application
++//
++//  Created by Shuvo on 11/10/21.
++//
++
++import UIKit
++
++class StoreModelView: NSObject {
++
++}
+-- 
+2.30.1 (Apple Git-130)
+

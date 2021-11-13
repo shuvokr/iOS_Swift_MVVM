@@ -1,0 +1,47 @@
+From 725b4032f2b6185cdb35368cba8ef182d0dad0b6 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Wed, 10 Nov 2021 15:13:52 +0600
+Subject: [PATCH 11/29] - Added webservice engine & data model.
+
+---
+ Asimple_e-market_application/Model/Model.swift       |  8 ++++++++
+ .../WebServices/APIService.swift                     | 12 ++++++++++++
+ 2 files changed, 20 insertions(+)
+ create mode 100644 Asimple_e-market_application/Model/Model.swift
+ create mode 100644 Asimple_e-market_application/WebServices/APIService.swift
+
+diff --git a/Asimple_e-market_application/Model/Model.swift b/Asimple_e-market_application/Model/Model.swift
+new file mode 100644
+index 0000000..bf3673a
+--- /dev/null
++++ b/Asimple_e-market_application/Model/Model.swift
+@@ -0,0 +1,8 @@
++//
++//  Model.swift
++//  Asimple_e-market_application
++//
++//  Created by Shuvo on 11/10/21.
++//
++
++import Foundation
+diff --git a/Asimple_e-market_application/WebServices/APIService.swift b/Asimple_e-market_application/WebServices/APIService.swift
+new file mode 100644
+index 0000000..427db40
+--- /dev/null
++++ b/Asimple_e-market_application/WebServices/APIService.swift
+@@ -0,0 +1,12 @@
++//
++//  APIService.swift
++//  Asimple_e-market_application
++//
++//  Created by Shuvo on 11/10/21.
++//
++
++import UIKit
++
++class APIService: NSObject {
++
++}
+-- 
+2.30.1 (Apple Git-130)
+

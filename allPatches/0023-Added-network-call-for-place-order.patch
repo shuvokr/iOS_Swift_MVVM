@@ -1,0 +1,78 @@
+From 69cf5493e45796a8f6236f2be690d28d490d4596 Mon Sep 17 00:00:00 2001
+From: shuvokr <anik@sdlknvadijfasdjn.local>
+Date: Thu, 11 Nov 2021 12:15:45 +0600
+Subject: [PATCH 23/29] - Added network call for place order.
+
+---
+ .../WebServices/APIService.swift              | 55 ++++++++++++++++++-
+ 1 file changed, 54 insertions(+), 1 deletion(-)
+
+diff --git a/Asimple_e-market_application/WebServices/APIService.swift b/Asimple_e-market_application/WebServices/APIService.swift
+index 4573cf1..bb9531f 100644
+--- a/Asimple_e-market_application/WebServices/APIService.swift
++++ b/Asimple_e-market_application/WebServices/APIService.swift
+@@ -88,7 +88,60 @@ extension APIService {
+ }
+ // MARK: - Place order
+ extension APIService {
+-    func apiToPlaceOrder(completion : @escaping (Int) -> ()) {
++    func apiToPlaceOrder(productsData : [Products], completion : @escaping (Int) -> ()) {
++        var products: [[String : Any]] = [[String : Any]]()
+         
++        for i in 0..<productsData.count {
++            products.append([
++                "name": productsData[i].name,
++                "price": productsData[i].price,
++                "imageUrl": productsData[i].imageUrl
++            ])
++        }
++        
++        let parameters = [
++            "products": products,
++            "delivery_address": "CDC O4 Office, Bangkapi, Bangkok, 10310"
++        ] as [String : Any]
++        print(parameters)
++        let postData = try? JSONSerialization.data(withJSONObject: parameters)
++
++        var request = URLRequest(url: URL(string: "https://virtserver.swaggerhub.com/m-tul/opn-mobile-challenge-api/1.0.0/order")!,timeoutInterval: Double.infinity)
++        request.addValue("*/*", forHTTPHeaderField: "accept")
++        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
++
++        request.httpMethod = "POST"
++        request.httpBody = postData
++
++        let task = URLSession.shared.dataTask(with: request) { data, response, error in
++
++            let statusCode = response?.getStatusCode()
++            print("00000000000000000000000 \(String(describing: statusCode))")
++
++            // If error found
++            guard let data = data, error == nil else {
++                print(error?.localizedDescription ?? "No data")
++                return
++            }
++
++            // If response data found
++            print(String(data: data, encoding: .utf8)!)
++            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
++            if let responseJSON = responseJSON as? [String: Any] {
++                print(responseJSON)
++            }
++            completion(statusCode ?? -1)
++        }
++
++        task.resume()
++    }
++}
++
++extension URLResponse {
++    func getStatusCode() -> Int? {
++        if let httpResponse = self as? HTTPURLResponse {
++            return httpResponse.statusCode
++        }
++        return nil
+     }
+ }
+-- 
+2.30.1 (Apple Git-130)
+
