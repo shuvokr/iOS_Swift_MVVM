@@ -1,7 +1,7 @@
 # iOS_Swift_MVVM
 iOS | Swift | MVVM Architecture | Unit tests | UI tests | clean, readable and well-structured code | UI/UX principles
 
-# MVVM in iOS | Swift  [![Cult Of Martians][cult-img]][cult]
+# MVVM in iOS | Swift
 
 <img src="https://raw.githubusercontent.com/Sankra/NotifyPropertyChanged.Verifier/7c17c21f24fa1cea007070a575576c99faa5302b/doc/mvvm.svg" align="right"
      alt="Size Limit logo by Anton Lovchikov" width="120" height="178">
