@@ -18,3 +18,8 @@ proxy objects, generated entity, and repositories.
 
 * **View-Model** is the chain between the **Model** and the **View** components. The logic behind **View** is handled by this component. 
 The model classes are used by the **View-Model** to interact with Model. The **View-Model** then takes the **Model** data in the form that **View** can put to use.
+
+## Links
+
+* [WikipediA](https://en.wikipedia.org/wiki/Model–view–viewmodel)
+* [MEDIUM - MVVM in iOS Swift](https://medium.com/flawless-app-stories/mvvm-in-ios-swift-aa1448a66fb4)
