@@ -3,7 +3,7 @@ iOS | Swift | MVVM Architecture | Unit tests | UI tests | clean, readable and we
 
 # MVVM in iOS | Swift  [![Cult Of Martians][cult-img]][cult]
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fgithub.com%2FSankra%2FNotifyPropertyChanged.Verifier&psig=AOvVaw10pEtawKH5cTjkY_e5PScv&ust=1637657354608000&source=images&cd=vfe&ved=0CAgQjRxqFwoTCMDq55vLq_QCFQAAAAAdAAAAABAJ" align="right"
+<img src="https://raw.githubusercontent.com/Sankra/NotifyPropertyChanged.Verifier/7c17c21f24fa1cea007070a575576c99faa5302b/doc/mvvm.svg" align="right"
      alt="Size Limit logo by Anton Lovchikov" width="120" height="178">
 
 `John Gossman`, an architect from Microsoft is credited to have created the `Model View-View Model` 
